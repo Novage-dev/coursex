@@ -2,7 +2,9 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "strict": true
-  }
+    "strict": true,
+    "allowJs": true,
+    "jsx": "react-native"
+  },
+  "include": ["**/*.js", "**/*.jsx", "src/screens/Home.jsx", "src/screens/index.ts"]
 }

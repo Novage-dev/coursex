@@ -9,16 +9,16 @@ import {
 import { THEME as commonTheme } from './theme';
 
 export const COLORS: ThemeColors = {
-  text: '#F6F6F6', // light text
-  primary: '#38A954', // gold accent
-  secondary: '#2F2F2F',
-  tertiary: '#FFCB74',
+  text: '#111111',
+  primary: '#FFCB74',
+  secondary: '#F6F6F6',
+  tertiary: '#2F2F2F',
 
   black: '#111111',
   white: '#FFFFFF',
 
-  dark: '#111111',
-  light: '#2F2F2F',
+  dark: '#2F2F2F',
+  light: '#F6F6F6',
 
   gray: '#8C8C8C',
 
@@ -27,49 +27,49 @@ export const COLORS: ThemeColors = {
   success: '#82D616',
   info: '#17C1E8',
 
-  card: '#2F2F2F',
-  background: '#111111',
+  card: '#FFFFFF',
+  background: '#F6F6F6',
 
   shadow: '#000000',
-  overlay: 'rgba(0,0,0,0.4)',
+  overlay: 'rgba(0,0,0,0.1)',
 
   focus: '#FFCB74',
-  input: '#2F2F2F',
+  input: '#FFFFFF',
 
   switchOn: '#FFCB74',
-  switchOff: '#2F2F2F',
+  switchOff: '#E9ECEF',
 
-  checkbox: ['#FFCB74', '#2F2F2F'],
-  checkboxIcon: '#FFFFFF',
+  checkbox: ['#FFCB74', '#F6F6F6'],
+  checkboxIcon: '#111111',
 
   facebook: '#3B5998',
   twitter: '#55ACEE',
   dribbble: '#EA4C89',
 
-  icon: '#F6F6F6',  
-  blurTint: 'dark',
-  link: '#38A954',
+  icon: '#111111',
+  blurTint: 'light',
+  link: '#FFCB74',
 };
 
 export const GRADIENTS: ThemeGradients = {
-  primary: ['#38A954', '#2F2F2F'],
-  secondary: ['#2F2F2F', '#111111'],
+  primary: ['#FFCB74', '#F6F6F6'],
+  secondary: ['#F6F6F6', '#FFFFFF'],
   info: ['#21D4FD', '#2152FF'],
   success: ['#98EC2D', '#17AD37'],
   warning: ['#FBCF33', '#F53939'],
   danger: ['#FF667C', '#EA0606'],
 
-  light: ['#2F2F2F', '#111111'],
-  dark: ['#111111', '#000000'],
+  light: ['#FFFFFF', '#F6F6F6'],
+  dark: ['#2F2F2F', '#111111'],
 
   white: [String(COLORS.white), '#F6F6F6'],
   black: [String(COLORS.black), '#111111'],
 
-  divider: ['rgba(255,255,255,0.1)', 'rgba(255,255,255,0.05)'],
+  divider: ['rgba(0,0,0,0.05)', 'rgba(0,0,0,0.02)'],
   menu: [
-    'rgba(47,47,47,0.95)',
-    'rgba(17,17,17,0.9)',
-    'rgba(47,47,47,0.95)',
+    'rgba(255, 255, 255, 0.95)',
+    'rgba(246, 246, 246, 0.9)',
+    'rgba(255, 255, 255, 0.95)',
   ],
 };
 
@@ -94,9 +94,9 @@ export const SIZES: ThemeSizes = {
 
   shadowOffsetWidth: 0,
   shadowOffsetHeight: 4,
-  shadowOpacity: 0.1,
+  shadowOpacity: 0.07,
   shadowRadius: 6,
-  elevation: 3,
+  elevation: 2,
 
   inputHeight: 46,
   inputBorder: 1,
@@ -135,7 +135,7 @@ export const SPACING: ThemeSpacing = {
   xxl: SIZES.base * 7,
 };
 
-export const THEMENEW: ITheme = {
+export const THEME: ITheme = {
   ...commonTheme,
   colors: COLORS,
   gradients: GRADIENTS,

@@ -60,6 +60,7 @@ export default () => {
         <NavigationContainer theme={navigationTheme}>
           <Menu />
         </NavigationContainer>
+        
       </ThemeProvider>
     </TranslationProvider>
   );

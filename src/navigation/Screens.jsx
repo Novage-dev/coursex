@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {Articles, Components, Home, Profile, Register, Pro} from '../screens';
+import {Articles, Components, Home, Profile, Register, Pro, SplashScreen} from '../screens/index.ts';
 import {useScreenOptions, useTranslation} from '../hooks';
 
 const Stack = createStackNavigator();
@@ -30,7 +30,6 @@ export default () => {
         options={{title: t('navigation.articles')}}
       />
 
-      <Stack.Screen name="Pro" component={Pro} options={screenOptions.pro} />
 
       <Stack.Screen
         name="Profile"
@@ -43,6 +42,7 @@ export default () => {
         component={Register}
         options={{headerShown: false}}
       />
+      <Stack.Screen name="Splash" component={SplashScreen} />
     </Stack.Navigator>
   );
 };

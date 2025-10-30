@@ -10,7 +10,7 @@ import { THEME as commonTheme } from './theme';
 
 export const COLORS: ThemeColors = {
   text: '#F6F6F6', // light text
-  primary: '#38A954', // gold accent
+  primary: '#FFCB74', // gold accent
   secondary: '#2F2F2F',
   tertiary: '#FFCB74',
 
@@ -46,13 +46,13 @@ export const COLORS: ThemeColors = {
   twitter: '#55ACEE',
   dribbble: '#EA4C89',
 
-  icon: '#F6F6F6',  
+  icon: '#F6F6F6',
   blurTint: 'dark',
-  link: '#38A954',
+  link: '#FFCB74',
 };
 
 export const GRADIENTS: ThemeGradients = {
-  primary: ['#38A954', '#2F2F2F'],
+  primary: ['#FFCB74', '#2F2F2F'],
   secondary: ['#2F2F2F', '#111111'],
   info: ['#21D4FD', '#2152FF'],
   success: ['#98EC2D', '#17AD37'],

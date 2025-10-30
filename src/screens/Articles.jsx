@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList} from 'react-native';
 
-import {useData, useTheme} from '../hooks/';
+import {useData, useTheme} from '../hooks';
 import {IArticle, ICategory} from '../constants/types';
-import {Block, Button, Article, Text} from '../components/';
+import {Block, Button, Article, Text} from '../components';
 
 const Articles = () => {
   const data = useData();
-  const [selected, setSelected] = useState<ICategory>();
-  const [articles, setArticles] = useState<IArticle[]>([]);
-  const [categories, setCategories] = useState<ICategory[]>([]);
+  const [selected, setSelected] = useState();
+  const [articles, setArticles] = useState([]);
+  const [categories, setCategories] = useState([]);
   const {colors, gradients, sizes} = useTheme();
 
   // init articles

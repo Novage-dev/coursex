@@ -1,36 +1,24 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {Linking, Platform} from 'react-native';
 import {useNavigation} from '@react-navigation/core';
-import {useData, useTheme, useTranslation} from '../hooks/';
+import {useData, useTheme, useTranslation} from '../hooks';
 import * as regex from '../constants/regex';
-import {Block, Button, Input, Image, Text, Checkbox} from '../components/';
+import {Block, Button, Input, Image, Text, Checkbox} from '../components';
 
 const isAndroid = Platform.OS === 'android';
 
-interface IRegistration {
-  name: string;
-  email: string;
-  password: string;
-  agreed: boolean;
-}
-interface IRegistrationValidation {
-  name: boolean;
-  email: boolean;
-  password: boolean;
-  agreed: boolean;
-}
 
 const Register = () => {
   const {isDark} = useData();
   const {t} = useTranslation();
   const navigation = useNavigation();
-  const [isValid, setIsValid] = useState<IRegistrationValidation>({
+  const [isValid, setIsValid] = useState({
     name: false,
     email: false,
     password: false,
     agreed: false,
   });
-  const [registration, setRegistration] = useState<IRegistration>({
+  const [registration, setRegistration] = useState({
     name: '',
     email: '',
     password: '',

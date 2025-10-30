@@ -49,8 +49,8 @@
     }
   },
   "app": {
-    "name": "Soft UI",
-    "fullname": "Soft UI Kit",
+    "name": "CourseX",
+    "fullname": "CourseX",
     "native": "React Native",
     "link": "creative-tim.com"
   },
@@ -66,10 +66,10 @@
     "extra": "Extra - Automotive"
   },
   "navigation": {
-    "home": "Soft UI",
+    "home": "CourseX",
     "components": "Components",
-    "articles": "Soft UI",
-    "rentals": "Soft UI",
+    "articles": "CourseX",
+    "rentals": "CourseX",
     "rental": "Best Deal",
     "booking": "Booking",
     "chat": "Chat",
@@ -86,7 +86,7 @@
   },
   "menu": {
     "started": "Getting Started",
-    "documentation": "Documentation"
+    "preference": "Preference"
   },
   "home": {
     "title": "Soft UI",

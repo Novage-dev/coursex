@@ -3,8 +3,8 @@ import {Platform, Linking} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
 import {useNavigation} from '@react-navigation/core';
 
-import {Block, Button, Image, Text} from '../components/';
-import {useData, useTheme, useTranslation} from '../hooks/';
+import {Block, Button, Image, Text} from '../components';
+import {useData, useTheme, useTranslation} from '../hooks';
 
 const isAndroid = Platform.OS === 'android';
 
@@ -22,7 +22,7 @@ const Profile = () => {
     (sizes.width - (IMAGE_VERTICAL_SIZE + sizes.sm) * 2) / 2;
 
   const handleSocialLink = useCallback(
-    (type: 'twitter' | 'dribbble') => {
+    (type) => {
       const url =
         type === 'twitter'
           ? `https://twitter.com/${user?.social?.twitter}`
