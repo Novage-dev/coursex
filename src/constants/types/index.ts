@@ -1,5 +1,6 @@
-import {ImageSourcePropType} from 'react-native';
-import {ITheme} from './theme';
+import { ImageSourcePropType } from 'react-native';
+import { ITheme } from './theme';
+import { Float } from 'react-native/Libraries/Types/CodegenTypes';
 
 export * from './components';
 export * from './theme';
@@ -9,8 +10,8 @@ export interface IUser {
   name?: string;
   department?: string;
   avatar?: string;
-  stats?: {posts?: number; followers?: number; following?: number};
-  social?: {twitter?: string; dribbble?: string};
+  stats?: { posts?: number; followers?: number; following?: number };
+  social?: { twitter?: string; dribbble?: string };
   about?: string;
 }
 
@@ -23,7 +24,7 @@ export interface IArticleOptions {
   title?: string;
   description?: string;
   type?: 'room' | 'apartment' | 'house'; // private room | entire apartment | entire house
-  sleeping?: {total?: number; type?: 'sofa' | 'bed'};
+  sleeping?: { total?: number; type?: 'sofa' | 'bed' };
   guests?: number;
   price?: number;
   user?: IUser;
@@ -52,6 +53,20 @@ export interface IProduct {
   timestamp?: number;
   linkLabel?: string;
   type: 'vertical' | 'horizontal';
+}
+
+export interface ICourse {
+  id?: number;
+  title?: string;
+  description?: string;
+  seller?: string;
+  rating: Float;
+  image?: string;
+  timestamp?: number;
+  linkLabel?: string;
+  type: 'vertical' | 'horizontal';
+  price: number;
+  isbest: boolean;
 }
 export interface ILocation {
   id?: number;
@@ -131,11 +146,11 @@ export interface INotification {
   business?: boolean;
   createdAt?: number | Date;
   type:
-    | 'document'
-    | 'documentation'
-    | 'payment'
-    | 'notification'
-    | 'profile'
-    | 'extras'
-    | 'office';
+  | 'document'
+  | 'documentation'
+  | 'payment'
+  | 'notification'
+  | 'profile'
+  | 'extras'
+  | 'office';
 }

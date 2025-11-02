@@ -28,7 +28,8 @@ export const COLORS: ThemeColors = {
   info: '#17C1E8',
 
   card: '#FFFFFF',
-  background: '#F6F6F6',
+  background: '#f6f6f6',
+  backgroundnew: '#e5e5e5ff',
 
   shadow: '#000000',
   overlay: 'rgba(0,0,0,0.1)',

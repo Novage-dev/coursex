@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useState} from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import Storage from '@react-native-async-storage/async-storage';
 
 import {
@@ -7,6 +7,7 @@ import {
   IProduct,
   IUser,
   IUseData,
+  ICourse,
   ITheme,
 } from '../constants/types';
 
@@ -16,19 +17,31 @@ import {
   TRENDING,
   CATEGORIES,
   ARTICLES,
+  DESIGN,
+  BUSINESS,
+  DEVELOPMENT,
+  TRADING,
+  CATAGORIES
+
 } from '../constants/mocks';
-import {light} from '../constants';
-import {darknew} from '../constants';
+import { light } from '../constants';
+import { darknew } from '../constants';
+import { transform } from '@babel/core';
 
 export const DataContext = React.createContext({});
 
-export const DataProvider = ({children}: {children: React.ReactNode}) => {
+export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const [isDark, setIsDark] = useState(false);
   const [theme, setTheme] = useState<ITheme>(light);
   const [user, setUser] = useState<IUser>(USERS[0]);
   const [users, setUsers] = useState<IUser[]>(USERS);
   const [following, setFollowing] = useState<IProduct[]>(FOLLOWING);
-  const [trending, setTrending] = useState<IProduct[]>(TRENDING);
+  const [design, setDesign] = useState<ICourse[]>(DESIGN);
+  const [business, setBusiness] = useState<ICourse[]>(BUSINESS);
+  const [development, setDevelopment] = useState<ICourse[]>(DEVELOPMENT);
+  const [trading, setTrading] = useState<ICourse[]>(TRADING);
+  const [catagories, setCatagories] = useState<string[]>(CATAGORIES);
+  const [trending, setTrending] = useState<IProduct[]>(TRADING);
   const [categories, setCategories] = useState<ICategory[]>(CATEGORIES);
   const [articles, setArticles] = useState<IArticle[]>(ARTICLES);
   const [article, setArticle] = useState<IArticle>({});
@@ -60,7 +73,7 @@ export const DataProvider = ({children}: {children: React.ReactNode}) => {
     (payload: IUser[]) => {
       // set users / compare if has updated
       if (JSON.stringify(payload) !== JSON.stringify(users)) {
-        setUsers({...users, ...payload});
+        setUsers({ ...users, ...payload });
       }
     },
     [users, setUsers],
@@ -117,6 +130,16 @@ export const DataProvider = ({children}: {children: React.ReactNode}) => {
     setArticles,
     article,
     handleArticle,
+    design,
+    setDesign,
+    business,
+    setBusiness,
+    development,
+    setDevelopment,
+    trading,
+    setTrading,
+    catagories,
+    setCatagories,
   };
 
   return (

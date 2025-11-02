@@ -8,6 +8,7 @@ import {
   ILocation,
   INotification,
   IProduct,
+  ICourse,
   IUser,
 } from './types';
 
@@ -701,6 +702,287 @@ export const NOTIFICATIONS: INotification[] = [
   },
 ];
 
+// Courses
+export const DESIGN: ICourse[] = [
+  {
+    id: 1,
+    type: 'vertical',
+    title: 'Demo course 1',
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://plus.unsplash.com/premium_photo-1661596686441-611034b8077e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y291cnNlc3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000',
+  },
+  {
+    id: 2,
+    type: 'vertical',
+    title: "Demo course 2",
+    seller: "Yisakor",
+    rating: 4.2,
+    price: 300,
+    isbest: true,
+    image:
+      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y291cnNlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 3,
+    type: 'vertical',
+    title: "Demo course 3",
+    seller: "Abebe",
+    rating: 4.2,
+    price: 40,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1508830524289-0adcbe822b40?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y291cnNlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 4,
+    type: 'vertical',
+    title: "Demo course 4",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 40,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNvdXJzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 5,
+    type: 'vertical',
+    title: "Demo course 5",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 350,
+    isbest: true,
+    image:
+      'https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNvdXJzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 6,
+    type: 'vertical',
+    title: "Demo course 6",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNvdXJzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
+  },
+];
+export const BUSINESS: ICourse[] = [
+  {
+    id: 1,
+    type: 'vertical',
+    title: 'Demo course 1',
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://plus.unsplash.com/premium_photo-1661596686441-611034b8077e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y291cnNlc3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000',
+  },
+  {
+    id: 2,
+    type: 'vertical',
+    title: "Demo course 2",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y291cnNlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 3,
+    type: 'vertical',
+    title: "Demo course 3",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1508830524289-0adcbe822b40?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y291cnNlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 4,
+    type: 'vertical',
+    title: "Demo course 4",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNvdXJzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 5,
+    type: 'vertical',
+    title: "Demo course 5",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNvdXJzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 6,
+    type: 'vertical',
+    title: "Demo course 6",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNvdXJzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
+  },
+];
+export const DEVELOPMENT: ICourse[] = [
+  {
+    id: 1,
+    type: 'vertical',
+    title: 'Demo course 1',
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://plus.unsplash.com/premium_photo-1661596686441-611034b8077e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y291cnNlc3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000',
+  },
+  {
+    id: 2,
+    type: 'vertical',
+    title: "Demo course 2",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y291cnNlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 3,
+    type: 'vertical',
+    title: "Demo course 3",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1508830524289-0adcbe822b40?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y291cnNlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 4,
+    type: 'vertical',
+    title: "Demo course 4",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNvdXJzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 5,
+    type: 'vertical',
+    title: "Demo course 5",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNvdXJzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 6,
+    type: 'vertical',
+    title: "Demo course 6",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNvdXJzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
+  },
+];
+export const TRADING: ICourse[] = [
+  {
+    id: 1,
+    type: 'vertical',
+    title: 'Demo course 1',
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://plus.unsplash.com/premium_photo-1661596686441-611034b8077e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y291cnNlc3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000',
+  },
+  {
+    id: 2,
+    type: 'vertical',
+    title: "Demo course 2",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y291cnNlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 3,
+    type: 'vertical',
+    title: "Demo course 3",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1508830524289-0adcbe822b40?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y291cnNlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 4,
+    type: 'vertical',
+    title: "Demo course 4",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNvdXJzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 5,
+    type: 'vertical',
+    title: "Demo course 5",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNvdXJzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 6,
+    type: 'vertical',
+    title: "Demo course 6",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNvdXJzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
+  },
+];
+
+export const CATAGORIES: string[] = [
+  "DESIGN",
+  "BUSINESS",
+  "DEVELOPMENT",
+  "TRADING"
+]
+
 export default {
   USERS,
   FOLLOWING,
@@ -711,4 +993,9 @@ export default {
   MESSSAGES,
   EXTRAS,
   NOTIFICATIONS,
+  DESIGN,
+  BUSINESS,
+  DEVELOPMENT,
+  TRADING,
+  CATAGORIES
 };

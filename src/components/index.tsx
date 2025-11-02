@@ -9,6 +9,7 @@ import Image from './Image';
 import Article from './Article';
 import Product from './Product';
 import ModernInput from './InputSimple';
+import Coursecard from './Coursecard';
 
 export {
   Block,
@@ -18,6 +19,7 @@ export {
   Text,
   Switch,
   Checkbox,
+  Coursecard,
   Image,
   Article,
   Product,

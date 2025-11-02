@@ -91,6 +91,7 @@ export interface ThemeColors {
   info: ColorValue;
   card: ColorValue;
   background: ColorValue;
+  backgroundnew: ColorValue;
   shadow: ColorValue;
   overlay: ColorValue;
   focus: ColorValue;
@@ -254,6 +255,7 @@ export interface ThemeAssets {
   logo: ImageSourcePropType;
   header: ImageSourcePropType;
   background: ImageSourcePropType;
+  
 
   card1: ImageSourcePropType;
   card2: ImageSourcePropType;

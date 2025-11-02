@@ -45,17 +45,24 @@ const Profile = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{paddingBottom: sizes.padding}}>
         <Block flex={0}>
-          <Image
-            background
-            resizeMode="cover"
-            padding={sizes.sm}
-            paddingBottom={sizes.l}
-            radius={sizes.cardRadius}
-            source={assets.background}>
-            
-              <Text p white marginLeft={sizes.s}>
+
+            <Button
+              row
+              flex={0}
+              justify="flex-start"
+              onPress={() => navigation.goBack()}>
+              <Image
+                radius={0}
+                width={10}
+                height={18}
+                color={colors.text}
+                source={assets.arrow}
+                transform={[{rotate: '180deg'}]}
+              />
+              <Text p marginLeft={sizes.s}>
                 {t('profile.title')}
               </Text>
+            </Button>
             <Block flex={0} align="center">
               <Image
                 width={64}
@@ -63,15 +70,15 @@ const Profile = () => {
                 marginBottom={sizes.sm}
                 source={{uri: user?.avatar}}
               />
-              <Text h5 center white>
+              <Text h5 center >
                 {user?.name}
               </Text>
-              <Text p center white>
+              <Text p center >
                 {user?.department}
               </Text>
               <Block row marginVertical={sizes.m}>
                 <Button
-                  white
+                  
                   outlined
                   shadow={false}
                   radius={sizes.m}
@@ -82,8 +89,8 @@ const Profile = () => {
                     justify="center"
                     radius={sizes.m}
                     paddingHorizontal={sizes.m}
-                    color="rgba(255,255,255,0.2)">
-                    <Text white bold transform="uppercase">
+                    color="rgba(123, 123, 123, 0.42)">
+                    <Text  bold transform="uppercase">
                       {t('common.follow')}
                     </Text>
                   </Block>
@@ -92,37 +99,36 @@ const Profile = () => {
                   shadow={false}
                   radius={sizes.m}
                   marginHorizontal={sizes.sm}
-                  color="rgba(255,255,255,0.2)"
-                  outlined={String(colors.white)}
+                  color="rgba(123, 123, 123, 0.42)"
+                  outlined={String()}
                   onPress={() => handleSocialLink('twitter')}>
                   <Ionicons
                     size={18}
                     name="logo-twitter"
-                    color={colors.white}
+                    color={colors.text}
                   />
                 </Button>
                 <Button
                   shadow={false}
                   radius={sizes.m}
-                  color="rgba(255,255,255,0.2)"
-                  outlined={String(colors.white)}
+                  color="rgba(123, 123, 123, 0.42)"
+                  outlined={String()}
                   onPress={() => handleSocialLink('dribbble')}>
                   <Ionicons
                     size={18}
                     name="logo-dribbble"
-                    color={colors.white}
+                    color={colors.text}
                   />
                 </Button>
               </Block>
             </Block>
-          </Image>
 
           {/* profile: stats */}
           <Block
             flex={0}
             radius={sizes.sm}
             shadow={!isAndroid} // disabled shadow on Android due to blur overlay + elevation issue
-            marginTop={-sizes.l}
+            marginTop={sizes.sm}
             marginHorizontal="8%"
             color="rgba(255,255,255,0.2)">
             <Block
