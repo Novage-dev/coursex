@@ -33,14 +33,14 @@ export const COLORS: ThemeColors = {
   shadow: '#000000',
   overlay: 'rgba(0,0,0,0.4)',
 
-  focus: '#FFCB74',
-  input: '#2F2F2F',
+  focus: '#048426ff',
+  input: '#e9ecef',
 
-  switchOn: '#FFCB74',
-  switchOff: '#2F2F2F',
+  switchOn: '#048426ff',
+  switchOff: '#E9ECEF',
 
-  checkbox: ['#FFCB74', '#2F2F2F'],
-  checkboxIcon: '#FFFFFF',
+  checkbox: ['#048426ff', '#0c7526ff'],
+  checkboxIcon: '#111111',
 
   facebook: '#3B5998',
   twitter: '#55ACEE',
@@ -52,7 +52,7 @@ export const COLORS: ThemeColors = {
 };
 
 export const GRADIENTS: ThemeGradients = {
-  primary: ['#38A954', '#2F2F2F'],
+  primary: ['#38A954', '#0c7526ff'],
   secondary: ['#2F2F2F', '#111111'],
   info: ['#21D4FD', '#2152FF'],
   success: ['#98EC2D', '#17AD37'],

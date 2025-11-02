@@ -15,12 +15,12 @@ import {
 export const USERS: IUser[] = [
   {
     id: 1,
-    name: 'Devin Coldewey',
-    department: 'Marketing Manager',
-    stats: {posts: 323, followers: 53200, following: 749000},
-    social: {twitter: 'CreativeTim', dribbble: 'creativetim'},
+    name: 'Kibreab',
+    department: 'Sells courses',
+    stats: {posts: 4, followers: 5320, following: 7400},
+    social: {twitter: '', dribbble: ''},
     about:
-      'Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality).',
+      'I sell courses on how to become the best version of yourself, follow and be THAT GUY',
     avatar:
       'https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?fit=crop&w=80&q=80',
   },
@@ -86,42 +86,42 @@ export const FOLLOWING: IProduct[] = [
   {
     id: 1,
     type: 'vertical',
-    title: 'Unique activities with local experts.',
+    title: 'Demo course 1',
     image:
       'https://images.unsplash.com/photo-1604998103924-89e012e5265a?fit=crop&w=450&q=80',
   },
   {
     id: 2,
     type: 'vertical',
-    title: 'The highest status people.',
+    title: "Demo course 2",
     image:
       'https://images.unsplash.com/photo-1563492065599-3520f775eeed?fit=crop&w=450&q=80',
   },
   {
     id: 3,
     type: 'horizontal',
-    title: 'Experiences and things to do wherever you are.',
+    title: "Demo course 3",
     image:
       'https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?fit=crop&w=450&q=80',
   },
   {
     id: 4,
-    type: 'vertical',
-    title: 'Get more followers and grow.',
+    type: 'horizontal',
+    title: "Demo course 4",
     image:
       'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?fit=crop&w=450&q=80',
   },
   {
     id: 5,
-    type: 'vertical',
-    title: 'New ways to meet your business goals.',
+    type: 'horizontal',
+    title: "Demo course 5",
     image:
       'https://images.unsplash.com/photo-1497215728101-856f4ea42174?fit=crop&w=450&q=80',
   },
   {
     id: 6,
     type: 'horizontal',
-    title: 'Adventures - Multi day trips with meals and stays.',
+    title: "Demo course 6",
     image:
       'https://images.unsplash.com/photo-1468078809804-4c7b3e60a478?fit=crop&w=450&q=80',
   },

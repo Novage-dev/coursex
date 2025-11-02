@@ -1,5 +1,5 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
-import {Alert, Animated, Linking, StyleSheet} from 'react-native';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Alert, Animated, Linking, StyleSheet } from 'react-native';
 
 import {
   createDrawerNavigator,
@@ -8,14 +8,14 @@ import {
   useDrawerStatus,
 } from '@react-navigation/drawer';
 import Screens from './Screens';
-import {Block, Text, Switch, Button, Image} from '../components';
-import {useData, useTheme, useTranslation} from '../hooks';
+import { Block, Text, Switch, Button, Image } from '../components';
+import { useData, useTheme, useTranslation } from '../hooks';
 
 const Drawer = createDrawerNavigator();
 
 /* drawer menu screens navigation */
 const ScreensStack = () => {
-  const {colors} = useTheme();
+  const { colors } = useTheme();
 
   const isDrawerOpen = useDrawerStatus() === 'open';
   const animation = useRef(new Animated.Value(0)).current;
@@ -32,7 +32,7 @@ const ScreensStack = () => {
 
   const animatedStyle = {
     borderRadius: borderRadius,
-    transform: [{scale: scale}],
+    transform: [{ scale: scale }],
   };
 
   useEffect(() => {
@@ -62,18 +62,18 @@ const ScreensStack = () => {
 
 /* custom drawer menu */
 const DrawerContent = (props) => {
-  const {navigation} = props;
-  const {t} = useTranslation();
-  const {isDark, handleIsDark} = useData();
+  const { navigation } = props;
+  const { t } = useTranslation();
+  const { isDark, handleIsDark } = useData();
   const [active, setActive] = useState('Home');
-  const {assets, colors, gradients, sizes} = useTheme();
+  const { assets, colors, gradients, sizes } = useTheme();
   const labelColor = colors.text;
 
   const handleNavigation = useCallback(
     (to) => {
       setActive(to);
       // Properly navigate to screens in the stack
-      navigation.navigate('Screens', {screen: to});
+      navigation.navigate('Screens', { screen: to });
     },
     [navigation, setActive],
   );
@@ -82,9 +82,10 @@ const DrawerContent = (props) => {
 
   // screen list for Drawer menu
   const screens = [
-    {name: t('screens.home'), to: 'Home', icon: assets.home},
-    {name: t('screens.profile'), to: 'Profile', icon: assets.profile},
-    {name: t('screens.register'), to: 'Register', icon: assets.register},
+    { name: t('screens.home'), to: 'Home', icon: assets.home },
+    { name: t('screens.profile'), to: 'Profile', icon: assets.profile },
+    { name: t('screens.register'), to: 'Register', icon: assets.register },
+    { name: t('screens.login'), to: 'Login', icon: assets.register },
   ];
 
   return (
@@ -93,7 +94,7 @@ const DrawerContent = (props) => {
       scrollEnabled
       removeClippedSubviews
       renderToHardwareTextureAndroid
-      contentContainerStyle={{paddingBottom: sizes.padding}}>
+      contentContainerStyle={{ paddingBottom: sizes.padding }}>
       <Block paddingHorizontal={sizes.padding}>
         <Block flex={0} row align="center" marginBottom={sizes.l}>
           <Image
@@ -103,6 +104,7 @@ const DrawerContent = (props) => {
             color={colors.text}
             source={assets.logo}
             marginRight={sizes.sm}
+            style={{ objectFit: "contain"}}
           />
           <Block>
             <Text size={12} semibold>
@@ -172,8 +174,8 @@ const DrawerContent = (props) => {
 
 /* drawer menu navigation */
 export default () => {
-  const {gradients} = useTheme();
-  const {isDark} = useData();
+  const { gradients } = useTheme();
+  const { isDark } = useData();
 
   return (
     <Block gradient={isDark ? gradients.dark : gradients.light}>

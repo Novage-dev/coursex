@@ -1,12 +1,11 @@
 {
   "expo": {
-    "name": "rn-soft-ui-kit-free",
-    "slug": "rn-soft-ui-kit-free",
-    "description": "React Native - Soft UI Kit - Free",
-    "primaryColor": "#CB0C9F",
+    "name": "CourseX",
+    "slug": "CourseX",
+    "description": "CourseX, get your courses - change your life",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logonc.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "cover",
@@ -23,12 +22,11 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#CB0C9F"
+        "foregroundImage": "./assets/logonc.png"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/logon.png"
     }
   }
 }

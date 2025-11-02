@@ -30,6 +30,7 @@
     "email": "Email",
     "emailPlaceholder": "Enter your email address",
     "password": "Password",
+    "conPassword": "Confirm Password",
     "passwordPlaceholder": "Enter a password",
     "agree": "I agree with the ",
     "terms": "Terms and Conditions",
@@ -42,6 +43,8 @@
     "checkout": "Proceed to checkout",
     "readArticle": "Read Article",
     "send": "Send",
+    "haveAcc?":"Already have an account?",
+    "noAcc?":"Don't have an account yet?",
     "guests": {
       "one": "1 guest",
       "other": "{{count}} guests",
@@ -63,7 +66,8 @@
     "profile": "Profile",
     "settings": "Settings",
     "register": "Create account",
-    "extra": "Extra - Automotive"
+    "extra": "Extra - Automotive",
+    "login": "Login"
   },
   "navigation": {
     "home": "CourseX",
@@ -95,7 +99,9 @@
   },
   "register": {
     "title": "Welcome",
-    "subtitle": "Register with"
+    "subtitle": "Register with",
+    "login": "Login",
+    "forgot": "Forgot password?"
   },
   "profile": {
     "title": "Profile",
