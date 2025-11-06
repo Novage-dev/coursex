@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
+  ColorValue,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import useTheme from '../hooks/useTheme';
@@ -43,7 +44,7 @@ const ModernInput: React.FC<ModernInputProps> = ({
 
   // --- Determine icon and color based on state ---
   let iconName: string | undefined;
-  let iconColor: string | undefined;
+  let iconColor: string | undefined | ColorValue;
 
   if (iconType === 'eye') {
     iconName = isPasswordVisible ? 'eye-outline' : 'eye-off-outline';

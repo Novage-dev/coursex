@@ -6,12 +6,17 @@ import { useScreenOptions, useTranslation } from '../hooks';
 
 const Stack = createStackNavigator();
 
-export default () => {
+// Accept an optional `initialRouteName` prop so tab screens can open the stack
+// on a specific screen while keeping the same stack/header configuration.
+export default ({ initialRouteName }) => {
   const { t } = useTranslation();
   const screenOptions = useScreenOptions();
 
   return (
-    <Stack.Navigator screenOptions={screenOptions.stack}>
+    <Stack.Navigator
+      initialRouteName={initialRouteName || 'Home'}
+      screenOptions={screenOptions.stack}
+    >
       <Stack.Screen
         name="Home"
         component={Home}
@@ -30,7 +35,6 @@ export default () => {
         options={{ title: t('navigation.articles') }}
       />
 
-
       <Stack.Screen
         name="Profile"
         component={Profile}
@@ -42,6 +46,7 @@ export default () => {
         component={Register}
         options={{ headerShown: false }}
       />
+
       <Stack.Screen name="Splash" component={SplashScreen} />
       <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
     </Stack.Navigator>

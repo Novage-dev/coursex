@@ -4,6 +4,7 @@ import Storage from '@react-native-async-storage/async-storage';
 import {
   IArticle,
   ICategory,
+  ICatagory,
   IProduct,
   IUser,
   IUseData,
@@ -40,7 +41,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const [business, setBusiness] = useState<ICourse[]>(BUSINESS);
   const [development, setDevelopment] = useState<ICourse[]>(DEVELOPMENT);
   const [trading, setTrading] = useState<ICourse[]>(TRADING);
-  const [catagories, setCatagories] = useState<string[]>(CATAGORIES);
+  const [catagories, setCatagories] = useState<ICatagory[]>(CATAGORIES);
   const [trending, setTrending] = useState<IProduct[]>(TRADING);
   const [categories, setCategories] = useState<ICategory[]>(CATEGORIES);
   const [articles, setArticles] = useState<IArticle[]>(ARTICLES);

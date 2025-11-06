@@ -91,7 +91,16 @@ export interface ThemeColors {
   info: ColorValue;
   card: ColorValue;
   background: ColorValue;
+  
   backgroundnew: ColorValue;
+
+  adgrad1: ColorValue;
+  adgrad2: ColorValue;
+  adgrad3: ColorValue;
+  adgrad4: ColorValue;
+  adgrad5: ColorValue;
+  adgrad6: ColorValue;
+  
   shadow: ColorValue;
   overlay: ColorValue;
   focus: ColorValue;

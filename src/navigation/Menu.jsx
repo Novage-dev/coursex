@@ -1,204 +1,66 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Alert, Animated, Linking, StyleSheet } from 'react-native';
-
-import {
-  createDrawerNavigator,
-  DrawerContentComponentProps,
-  DrawerContentScrollView,
-  useDrawerStatus,
-} from '@react-navigation/drawer';
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Screens from './Screens';
-import { Block, Text, Switch, Button, Image } from '../components';
+import { Block, Image } from '../components';
 import { useData, useTheme, useTranslation } from '../hooks';
 
-const Drawer = createDrawerNavigator();
+const Tab = createBottomTabNavigator();
 
-/* drawer menu screens navigation */
-const ScreensStack = () => {
-  const { colors } = useTheme();
-
-  const isDrawerOpen = useDrawerStatus() === 'open';
-  const animation = useRef(new Animated.Value(0)).current;
-
-  const scale = animation.interpolate({
-    inputRange: [0, 1],
-    outputRange: [1, 0.88],
-  });
-
-  const borderRadius = animation.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, 16],
-  });
-
-  const animatedStyle = {
-    borderRadius: borderRadius,
-    transform: [{ scale: scale }],
-  };
-
-  useEffect(() => {
-    Animated.timing(animation, {
-      duration: 200,
-      useNativeDriver: true,
-      toValue: isDrawerOpen ? 1 : 0,
-    }).start();
-  }, [isDrawerOpen, animation]);
-
-  return (
-    <Animated.View
-      style={StyleSheet.flatten([
-        animatedStyle,
-        {
-          flex: 1,
-          overflow: 'hidden',
-          borderColor: colors.card,
-          borderWidth: isDrawerOpen ? 1 : 0,
-        },
-      ])}>
-      {/*  */}
-      <Screens />
-    </Animated.View>
-  );
-};
-
-/* custom drawer menu */
-const DrawerContent = (props) => {
-  const { navigation } = props;
-  const { t } = useTranslation();
-  const { isDark, handleIsDark } = useData();
-  const [active, setActive] = useState('Home');
-  const { assets, colors, gradients, sizes } = useTheme();
-  const labelColor = colors.text;
-
-  const handleNavigation = useCallback(
-    (to) => {
-      setActive(to);
-      // Properly navigate to screens in the stack
-      navigation.navigate('Screens', { screen: to });
-    },
-    [navigation, setActive],
-  );
-
-  const handleWebLink = useCallback((url) => Linking.openURL(url), []);
-
-  // screen list for Drawer menu
-  const screens = [
-    { name: t('screens.home'), to: 'Home', icon: assets.home },
-    { name: t('screens.profile'), to: 'Profile', icon: assets.profile },
-    { name: t('screens.register'), to: 'Register', icon: assets.register },
-    { name: t('screens.login'), to: 'Login', icon: assets.register },
-  ];
-
-  return (
-    <DrawerContentScrollView
-      {...props}
-      scrollEnabled
-      removeClippedSubviews
-      renderToHardwareTextureAndroid
-      contentContainerStyle={{ paddingBottom: sizes.padding }}>
-      <Block paddingHorizontal={sizes.padding}>
-        <Block flex={0} row align="center" marginBottom={sizes.l}>
-          <Image
-            radius={0}
-            width={33}
-            height={33}
-            color={colors.text}
-            source={assets.logo}
-            marginRight={sizes.sm}
-            style={{ objectFit: "contain"}}
-          />
-          <Block>
-            <Text size={12} semibold>
-              {t('app.name')}
-            </Text>
-          </Block>
-        </Block>
-
-        {screens?.map((screen, index) => {
-          const isActive = active === screen.to;
-          return (
-            <Button
-              row
-              justify="flex-start"
-              marginBottom={sizes.s}
-              key={`menu-screen-${screen.name}-${index}`}
-              onPress={() => handleNavigation(screen.to)}>
-              <Block
-                flex={0}
-                radius={6}
-                align="center"
-                justify="center"
-                width={sizes.md}
-                height={sizes.md}
-                marginRight={sizes.s}
-                gradient={gradients[isActive ? 'primary' : 'white']}>
-                <Image
-                  radius={0}
-                  width={14}
-                  height={14}
-                  source={screen.icon}
-                  color={colors[isActive ? 'white' : 'black']}
-                />
-              </Block>
-              <Text p semibold={isActive} color={labelColor}>
-                {screen.name}
-              </Text>
-            </Button>
-          );
-        })}
-
-        <Block
-          flex={0}
-          height={1}
-          marginRight={sizes.md}
-          marginVertical={sizes.sm}
-          gradient={gradients.menu}
-        />
-
-        <Text semibold transform="uppercase" opacity={0.5}>
-          {t('menu.preference')}
-        </Text>
-
-        <Block row justify="space-between" marginTop={sizes.sm}>
-          <Text color={labelColor}>{t('darkMode')}</Text>
-          <Switch
-            checked={isDark}
-            onPress={(checked) => {
-              handleIsDark(checked);
-            }}
-          />
-        </Block>
-      </Block>
-    </DrawerContentScrollView>
-  );
-};
-
-/* drawer menu navigation */
+/* bottom tab navigation (replaces drawer) */
 export default () => {
   const { gradients } = useTheme();
   const { isDark } = useData();
+  const { assets, colors, sizes } = useTheme();
+  const { t } = useTranslation();
+
+  // define tabs that map to the stack's initial screens
+  const tabs = [
+    { name: 'Home', label: t('screens.home'), icon: assets.home },
+    { name: 'Components', label: t('screens.components'), icon: assets.components },
+    { name: 'Articles', label: t('screens.articles'), icon: assets.book },
+    { name: 'Profile', label: t('screens.profile'), icon: assets.profile },
+  ];
 
   return (
     <Block gradient={isDark ? gradients.dark : gradients.light}>
-      <Drawer.Navigator
-        screenOptions={{
-          drawerStyle: {
-            flex: 1,
-            width: '60%',
-            borderRightWidth: 0,
-            backgroundColor: 'transparent',
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          headerShown: false, // keep inner stack headers from Screens
+          tabBarActiveTintColor: colors.primary,
+          tabBarInactiveTintColor: colors.text,
+          tabBarStyle: {
+            backgroundColor: colors.card,
+            borderTopColor: 'transparent',
+            height: 60,
+            paddingBottom: 6,
           },
-          drawerType: 'slide',
-          overlayColor: 'transparent',
-        }}
-        drawerContent={(props) => <DrawerContent {...props} />}>
-        <Drawer.Screen
-          name="Screens"
-          component={ScreensStack}
-          options={{
-            headerShown: false,
-          }}
-        />
-      </Drawer.Navigator>
+          tabBarIcon: ({ color, size }) => {
+            // find icon for the route
+            const match = tabs.find((t) => t.name === route.name);
+            if (!match) return null;
+            return (
+              <Image
+                radius={0}
+                width={18}
+                height={18}
+                source={match.icon}
+                color={color}
+              />
+            );
+          },
+        })}
+      >
+        {tabs.map((tab) => (
+          <Tab.Screen
+            key={tab.name}
+            name={tab.name}
+            // each tab renders the same Stack but with the initial route set
+            component={() => <Screens initialRouteName={tab.name} />}
+            options={{ tabBarLabel: tab.label }}
+          />
+        ))}
+      </Tab.Navigator>
     </Block>
   );
 };

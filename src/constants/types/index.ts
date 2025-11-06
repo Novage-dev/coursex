@@ -68,6 +68,10 @@ export interface ICourse {
   price: number;
   isbest: boolean;
 }
+export interface ICatagory {
+  id?: number;
+  title?: string;
+}
 export interface ILocation {
   id?: number;
   city?: string;

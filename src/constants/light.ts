@@ -9,7 +9,7 @@ import {
 import { THEME as commonTheme } from './theme';
 
 export const COLORS: ThemeColors = {
-  text: '#111111',
+  text: '#2c2b2bff',
   primary: '#38A954',
   secondary: '#F6F6F6',
   tertiary: '#2F2F2F',
@@ -29,7 +29,14 @@ export const COLORS: ThemeColors = {
 
   card: '#FFFFFF',
   background: '#f6f6f6',
-  backgroundnew: '#e5e5e5ff',
+  backgroundnew: '#FFFFFF',
+
+  adgrad1: '#242424ff',
+  adgrad2: '#727272ff',
+  adgrad3: '#7a7a7aff',
+  adgrad4: '#212524ff',
+  adgrad5: '#282828ff',
+  adgrad6: '#a2a2a2ff',
 
   shadow: '#000000',
   overlay: 'rgba(0,0,0,0.1)',

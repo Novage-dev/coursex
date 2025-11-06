@@ -29,6 +29,14 @@ export const COLORS: ThemeColors = {
 
   card: '#2F2F2F',
   background: '#111111',
+  backgroundnew: '#111111',
+
+  adgrad1: '#24a56dff',
+  adgrad2: '#044f3bff',
+  adgrad3: '#198656ff',
+  adgrad4: '#17b88dff',
+  adgrad5: '#144f35ff',
+  adgrad6: '#06a97eff',
 
   shadow: '#000000',
   overlay: 'rgba(0,0,0,0.4)',
@@ -46,7 +54,7 @@ export const COLORS: ThemeColors = {
   twitter: '#55ACEE',
   dribbble: '#EA4C89',
 
-  icon: '#F6F6F6',  
+  icon: '#F6F6F6',
   blurTint: 'dark',
   link: '#38A954',
 };

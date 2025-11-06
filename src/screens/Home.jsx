@@ -4,7 +4,8 @@ import { useData, useTheme, useTranslation } from '../hooks';
 import { Block, Coursecard, Image, Input, Product, Text } from '../components';
 import Carousel from "react-native-reanimated-carousel";
 import { LinearGradient } from "expo-linear-gradient";
-import { Dimensions } from "react-native";
+import { Dimensions, ScrollView, StyleSheet, View } from "react-native";
+import { CATAGORIES } from '../constants/mocks';
 
 const { width } = Dimensions.get("window");
 const Home = () => {
@@ -22,20 +23,20 @@ const Home = () => {
   const data = [
     {
       'id': 1,
-      "gradient1": "#38A954",
-      "gradient2": "#07601eff",
+      "gradient1": colors.adgrad1,
+      "gradient2": colors.adgrad2,
       "text": "Learn, Change, Grow... "
     },
     {
       'id': 2,
-      "gradient1": "#9dd554ff",
-      "gradient2": "#2d5b05ff",
+      "gradient1": colors.adgrad3,
+      "gradient2": colors.adgrad4,
       "text": "Change your life!"
     },
     {
       'id': 3,
-      "gradient1": "#24a56dff",
-      "gradient2": "#044f3bff",
+      "gradient1": colors.adgrad5,
+      "gradient2": colors.adgrad6,
       "text": "Start today"
     },
   ]
@@ -47,14 +48,17 @@ const Home = () => {
       <Block color={colors.backgroundnew} flex={0} padding={sizes.padding}>
         <Input search placeholder={t('common.search')} />
       </Block>
+
+      {/* entire page wrapper */}
       <Block
-       color={colors.backgroundnew}
+        color={colors.backgroundnew}
         scroll
         paddingHorizontal={sizes.padding}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: sizes.l }}
 
       >
+        {/* header ad */}
         <Carousel
           loop={true}
           width={width * 0.9}
@@ -91,50 +95,67 @@ const Home = () => {
             </Block>
           )}
         />
-        
-        <Block marginTop={sizes.sm}>
-          <Text bold size={18}>Top Courses on Design</Text>
+
+        {/* catagories */}
+        <Block marginBottom={14}>
+          <Text bold size={18} marginBottom={10}>CATEGORIES</Text>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {CATAGORIES?.map((cat) => (
+              <View key={cat.id} style={[styles.capsule, { borderColor: colors.text }]}>
+                <Text bold>{cat.title}</Text>
+              </View>
+            ))}
+          </ScrollView>
         </Block>
-        <Carousel
-          loop={false}
-          width={430}
-          height={258}
-          snapEnabled={false}
-          pagingEnabled={false}
-          // autoPlay
-          // autoPlayInterval={2000}
-          data={design}
-          style={{ width: "100%" }}
-          renderItem={({ index }) => (
-            <Block row wrap="wrap" justify="space-between" marginTop={sizes.sm}>
-              <Coursecard {...design[index]} key={`card-${design[index]?.id}`} />
+
+        {/* courses list */}
+        <>
+          <View>
+            <Block marginTop={sizes.sm}>
+              <Text bold size={18}>Top Courses on Trading</Text>
             </Block>
-          )}
-        />
-        <Block row wrap="wrap" justify="space-between" marginTop={sizes.sm}>
-          {products?.map((product) => (
-            <Product {...product} key={`card-${product?.id}`} />
-          ))}
-        </Block>
-        <Block marginTop={sizes.sm}>
-          <Text bold size={18}>Top Courses on Trading</Text>
-        </Block>
-        <Carousel
-          loop={false}
-          width={430}
-          height={258}
-          snapEnabled={false}
-          pagingEnabled={false}
-          // autoPlay
-          // autoPlayInterval={2000}
-          data={trading}
-          style={{ width: "100%" }}
-          renderItem={({ index }) => (
-            <Block row wrap="wrap" justify="space-between" marginTop={sizes.sm}>
-              <Coursecard {...design[index]} key={`card-${design[index]?.id}`} />
+            <ScrollView paddingLeft={8} horizontal showsHorizontalScrollIndicator={false}>
+              {design?.map((data) => (
+                <Block row wrap="wrap" justify="space-between" marginTop={sizes.sm} marginRight={sizes.md} key={`block-${data.id}`}>
+                  <Coursecard {...data} key={`card-${data.id}`} />
+                </Block>
+              ))}
+            </ScrollView>
+          </View>
+
+          <View>
+            <Block marginTop={sizes.sm}>
+              <Text bold size={18}>Top Courses on Trading</Text>
             </Block>
-          )}
-        />
+            <ScrollView paddingLeft={8} horizontal showsHorizontalScrollIndicator={false}>
+              {trading?.map((data) => (
+                <Block row wrap="wrap" justify="space-between" marginTop={sizes.sm} marginRight={sizes.md} key={`block-${data.id}`}>
+                  <Coursecard {...data} key={`card-${data.id}`} />
+                </Block>
+              ))}
+            </ScrollView>
+          </View>
+
+          <View>
+            <Block marginTop={sizes.sm}>
+              <Text bold size={18}>Top Courses on Develompment</Text>
+            </Block>
+            <ScrollView paddingLeft={8} horizontal showsHorizontalScrollIndicator={false}>
+              {development?.map((data) => (
+                <Block row wrap="wrap" justify="space-between" marginTop={sizes.sm} marginRight={sizes.md} key={`block-${data.id}`}>
+                  <Coursecard {...data} key={`card-${data.id}`} />
+                </Block>
+              ))}
+            </ScrollView>
+          </View>
+
+          <Block row wrap="wrap" justify="space-between" marginTop={sizes.sm}>
+            {products?.map((product) => (
+              <Product {...product} key={`card-${product?.id}`} />
+            ))}
+          </Block>
+        </>
+
 
       </Block>
 
@@ -142,4 +163,38 @@ const Home = () => {
   );
 };
 
+const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+  },
+  label: {
+    marginBottom: 6,
+    fontWeight: '600',
+  },
+  inputRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  input: {
+    flex: 1,
+  },
+  capsuleWrapper: {
+    overflow: "scroll",
+  },
+  capsule: {
+    borderStyle: "solid",
+    borderWidth: 2,
+    borderRadius: 50,
+    paddingTop: 3,
+    paddingBottom: 3,
+    paddingRight: 10,
+    paddingLeft: 10,
+    marginRight: 7,
+  },
+  capsuleText: {
+
+  },
+});
+
 export default Home;
+

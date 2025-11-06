@@ -1,18 +1,29 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useLayoutEffect} from 'react';
 import {Platform, Linking} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
 import {useNavigation} from '@react-navigation/core';
 
-import {Block, Button, Image, Text} from '../components';
+import {Block, Button, Image, Text, Switch} from '../components';
 import {useData, useTheme, useTranslation} from '../hooks';
 
 const isAndroid = Platform.OS === 'android';
 
 const Profile = () => {
-  const {user} = useData();
+  const {user, isDark, handleIsDark} = useData();
   const {t} = useTranslation();
   const navigation = useNavigation();
   const {assets, colors, sizes} = useTheme();
+
+  // place a dark-mode toggle in the header's right side
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Block row align="center" paddingRight={sizes.s}>
+          <Switch checked={isDark} onPress={(checked) => handleIsDark(checked)} />
+        </Block>
+      ),
+    });
+  }, [navigation, isDark, handleIsDark, sizes.s]);
 
   const IMAGE_SIZE = (sizes.width - (sizes.padding + sizes.sm) * 2) / 3;
   const IMAGE_VERTICAL_SIZE =
