@@ -9,6 +9,7 @@ import {
   INotification,
   IProduct,
   ICourse,
+  IChannel,
   IUser,
   ICatagory,
 } from './types';
@@ -976,26 +977,86 @@ export const TRADING: ICourse[] = [
       'https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNvdXJzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
   },
 ];
+export const CHANNELS: IChannel[] = [
+  {
+    id: 1,
+    name: "Kibreab Hailu",
+    bio: "This is a channel bio",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+    isVerified: false,
+    coursesCount: 1,
+    followersCount: 10,
+  },
+  {
+    id: 2,
+    name: "Marry jane",
+    bio: "another channel bio",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+    isVerified: true,
+    coursesCount: 5,
+    followersCount: 1000,
+  },
+  {
+    id: 3,
+    name: "Abel Tesfaye",
+    bio: "also a channel bio",
+    image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880",
+    isVerified: false,
+    coursesCount: 2,
+    followersCount: 5,
+  },
+  {
+    id: 4,
+    name: "Henok Wolde",
+    bio: "a different channel bio",
+    image: "https://plus.unsplash.com/premium_photo-1731334985721-5453195ebe56?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+    isVerified: true,
+    coursesCount: 10,
+    followersCount: 2381,
+  },
+  {
+    id: 5,
+    name: "Yisakor Eyob",
+    bio: "yet another channel bio",
+    image: "https://plus.unsplash.com/premium_photo-1688891564708-9b2247085923?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+    isVerified: false,
+    coursesCount: 2,
+    followersCount: 340,
+  },
+  {
+    id: 6,
+    name: "ahmed salih",
+    bio: "again, another channel bio here",
+    image: "https://plus.unsplash.com/premium_photo-1669782051589-4f828261b1c2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2030",
+    isVerified: false,
+    coursesCount: 1,
+    followersCount: 253,
+  },
+];
 
 export const CATAGORIES: ICatagory[] = [
   {
     id: 1,
-    title: 'DESIGN',
+    title: 'ALL',
   },
   {
     id: 2,
-    title: 'BUSINESS',
-  },
-  {
-    id: 3,
     title: 'DESIGN',
   },
   {
+    id: 3,
+    title: 'BUSINESS',
+  },
+  {
     id: 4,
-    title: 'DEVELOPMENT',
+    title: 'DESIGN',
   },
   {
     id: 5,
+    title: 'DEVELOPMENT',
+  },
+  {
+    id: 6,
     title: 'TRADING',
   }
 ]
@@ -1014,5 +1075,6 @@ export default {
   BUSINESS,
   DEVELOPMENT,
   TRADING,
+  CHANNELS,
   CATAGORIES
 };

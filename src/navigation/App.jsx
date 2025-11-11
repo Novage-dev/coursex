@@ -1,26 +1,20 @@
-import React, {useEffect} from 'react';
-import {Platform, StatusBar} from 'react-native';
-import {useFonts} from 'expo-font';
-import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
+import React, { useEffect } from 'react';
+import { Platform } from 'react-native';
+import { useFonts } from 'expo-font';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import Menu from './Menu';
-import {useData, ThemeProvider, TranslationProvider} from '../hooks';
+import { useData, ThemeProvider, TranslationProvider } from '../hooks';
 
-// Keep the splash screen visible while we fetch resources
+// keep splash visible until resources are ready
 SplashScreen.preventAutoHideAsync();
-export default () => {
-  const {isDark, theme, setTheme} = useData();
 
-  /* set the status bar based on isDark constant */
-  useEffect(() => {
-    Platform.OS === 'android' && StatusBar.setTranslucent(true);
-    StatusBar.setBarStyle(isDark ? 'light-content' : 'dark-content');
-    return () => {
-      StatusBar.setBarStyle('default');
-    };
-  }, [isDark]);
+export default function App() {
+  const { isDark, theme, setTheme } = useData();
 
-  // load custom fonts
+  // ✅ load custom fonts
   const [fontsLoaded] = useFonts({
     'OpenSans-Light': theme.assets.OpenSansLight,
     'OpenSans-Regular': theme.assets.OpenSansRegular,
@@ -29,25 +23,22 @@ export default () => {
     'OpenSans-Bold': theme.assets.OpenSansBold,
   });
 
-  if (fontsLoaded) {
-    const hideSplash = async () => {
-      await SplashScreen.hideAsync();
-    };
-    hideSplash();
-  }
+  // ✅ Hide splash once fonts are ready
+  useEffect(() => {
+    if (fontsLoaded) SplashScreen.hideAsync();
+  }, [fontsLoaded]);
 
-  if (!fontsLoaded) {
-    return null;
-  }
+  if (!fontsLoaded) return null;
 
+  // ✅ Navigation color theme
   const navigationTheme = {
     ...DefaultTheme,
     dark: isDark,
     colors: {
       ...DefaultTheme.colors,
-      border: 'rgba(0,0,0,0)',
+      border: 'transparent',
       text: String(theme.colors.text),
-      card: String(theme.colors.card),
+      card: String(theme.colors.background),
       primary: String(theme.colors.primary),
       notification: String(theme.colors.primary),
       background: String(theme.colors.background),
@@ -57,10 +48,16 @@ export default () => {
   return (
     <TranslationProvider>
       <ThemeProvider theme={theme} setTheme={setTheme}>
-        <NavigationContainer theme={navigationTheme}>
-          <Menu />
-        </NavigationContainer>
+          {/* ✅ ExpoStatusBar handles light/dark mode reliably */}
+          <ExpoStatusBar
+            style={isDark ? 'light' : 'dark'}
+            backgroundColor={isDark ? '#121212' : '#ffffff'}
+            translucent={false}
+          />
+          <NavigationContainer theme={navigationTheme}>
+            <Menu />
+          </NavigationContainer>
       </ThemeProvider>
     </TranslationProvider>
   );
-};
+}

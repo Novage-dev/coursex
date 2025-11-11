@@ -10,6 +10,7 @@ import Article from './Article';
 import Product from './Product';
 import ModernInput from './InputSimple';
 import Coursecard from './Coursecard';
+import Channelcard from './Channelcard';
 
 export {
   Block,
@@ -20,6 +21,7 @@ export {
   Switch,
   Checkbox,
   Coursecard,
+  Channelcard,
   Image,
   Article,
   Product,

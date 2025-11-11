@@ -547,7 +547,7 @@ const Components = () => {
   }, [assets.header, navigation, sizes.width, headerHeight]);
 
   return (
-    <Block safe>
+    <Block safe tabScreen>
       <Block
         scroll
         showsVerticalScrollIndicator={false}

@@ -68,6 +68,16 @@ export interface ICourse {
   price: number;
   isbest: boolean;
 }
+
+export interface IChannel {
+  id: number;
+  name: string;
+  bio: string;
+  image: string;
+  isVerified: boolean;
+  coursesCount: number;
+  followersCount: number;
+}
 export interface ICatagory {
   id?: number;
   title?: string;

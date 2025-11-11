@@ -10,6 +10,7 @@ import {
   IUseData,
   ICourse,
   ITheme,
+  IChannel,
 } from '../constants/types';
 
 import {
@@ -22,6 +23,7 @@ import {
   BUSINESS,
   DEVELOPMENT,
   TRADING,
+  CHANNELS,
   CATAGORIES
 
 } from '../constants/mocks';
@@ -42,6 +44,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const [development, setDevelopment] = useState<ICourse[]>(DEVELOPMENT);
   const [trading, setTrading] = useState<ICourse[]>(TRADING);
   const [catagories, setCatagories] = useState<ICatagory[]>(CATAGORIES);
+  const [channels, setChannels] = useState<IChannel[]>(CHANNELS);
   const [trending, setTrending] = useState<IProduct[]>(TRADING);
   const [categories, setCategories] = useState<ICategory[]>(CATEGORIES);
   const [articles, setArticles] = useState<IArticle[]>(ARTICLES);
@@ -139,6 +142,8 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
     setDevelopment,
     trading,
     setTrading,
+    channels,
+    setChannels,
     catagories,
     setCatagories,
   };

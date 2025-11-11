@@ -5,7 +5,6 @@ import { Block, Coursecard, Image, Input, Product, Text } from '../components';
 import Carousel from "react-native-reanimated-carousel";
 import { LinearGradient } from "expo-linear-gradient";
 import { Dimensions, ScrollView, StyleSheet, View } from "react-native";
-import { CATAGORIES } from '../constants/mocks';
 
 const { width } = Dimensions.get("window");
 const Home = () => {
@@ -18,8 +17,9 @@ const Home = () => {
     trading,
     catagories
   } = useData();
-  const [products, setProducts] = useState(design);
+  const [products, setProducts] = useState(design); //can be used for toggleing catagories
   const { assets, colors, fonts, gradients, sizes } = useTheme();
+  
   const data = [
     {
       'id': 1,
@@ -43,11 +43,7 @@ const Home = () => {
 
 
   return (
-    <Block>
-      {/* search input */}
-      <Block color={colors.backgroundnew} flex={0} padding={sizes.padding}>
-        <Input search placeholder={t('common.search')} />
-      </Block>
+    <Block tabScreen>
 
       {/* entire page wrapper */}
       <Block
@@ -56,7 +52,7 @@ const Home = () => {
         paddingHorizontal={sizes.padding}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: sizes.l }}
-
+        paddingTop={sizes.sm}
       >
         {/* header ad */}
         <Carousel
@@ -68,7 +64,7 @@ const Home = () => {
           autoPlay
           autoPlayInterval={3000}
           data={data}
-          style={{ width: "100%" }}
+          style={{ width: "100%", marginBottom: sizes.sm * 1.5 }}
           renderItem={({ index }) => (
             <Block marginTop={sizes.sm}>
               <LinearGradient
@@ -99,8 +95,8 @@ const Home = () => {
         {/* catagories */}
         <Block marginBottom={14}>
           <Text bold size={18} marginBottom={10}>CATEGORIES</Text>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {CATAGORIES?.map((cat) => (
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.capsuleWrapper}>
+            {catagories?.map((cat) => (
               <View key={cat.id} style={[styles.capsule, { borderColor: colors.text }]}>
                 <Text bold>{cat.title}</Text>
               </View>
@@ -179,7 +175,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   capsuleWrapper: {
-    overflow: "scroll",
+    opacity: 0.8,
   },
   capsule: {
     borderStyle: "solid",

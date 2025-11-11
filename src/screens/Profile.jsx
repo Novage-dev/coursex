@@ -1,29 +1,33 @@
-import React, {useCallback, useLayoutEffect} from 'react';
-import {Platform, Linking} from 'react-native';
-import {Ionicons} from '@expo/vector-icons';
-import {useNavigation} from '@react-navigation/core';
+import React, { useCallback, useLayoutEffect } from 'react';
+import { Platform, Linking } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/core';
 
-import {Block, Button, Image, Text, Switch} from '../components';
-import {useData, useTheme, useTranslation} from '../hooks';
+import { Block, Button, Image, Text, Switch } from '../components';
+import { useData, useTheme, useTranslation } from '../hooks';
+import { StatusBar } from 'react-native';
 
 const isAndroid = Platform.OS === 'android';
 
 const Profile = () => {
-  const {user, isDark, handleIsDark} = useData();
-  const {t} = useTranslation();
+  const { user, isDark, handleIsDark } = useData();
+  const { t } = useTranslation();
   const navigation = useNavigation();
-  const {assets, colors, sizes} = useTheme();
+  const { assets, colors, sizes } = useTheme();
 
   // place a dark-mode toggle in the header's right side
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <Block row align="center" paddingRight={sizes.s}>
-          <Switch checked={isDark} onPress={(checked) => handleIsDark(checked)} />
-        </Block>
+        <Switch checked={isDark} onPress={(checked) => handleIsDark(checked)} />
       ),
+      headerRightContainerStyle: {
+        paddingRight: sizes.sm * 2, // adds space to the edge
+        marginRight: sizes.sm,      // optional
+      },
     });
-  }, [navigation, isDark, handleIsDark, sizes.s]);
+  }, [navigation, isDark, handleIsDark, sizes.sm]);
+
 
   const IMAGE_SIZE = (sizes.width - (sizes.padding + sizes.sm) * 2) / 3;
   const IMAGE_VERTICAL_SIZE =
@@ -49,90 +53,73 @@ const Profile = () => {
   );
 
   return (
-    <Block safe marginTop={sizes.md}>
+    <Block tabScreen safe>
       <Block
         scroll
         paddingHorizontal={sizes.s}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{paddingBottom: sizes.padding}}>
+        contentContainerStyle={{ paddingBottom: sizes.padding }}>
         <Block flex={0}>
 
-            <Button
-              row
-              flex={0}
-              justify="flex-start"
-              onPress={() => navigation.goBack()}>
-              <Image
-                radius={0}
-                width={10}
-                height={18}
-                color={colors.text}
-                source={assets.arrow}
-                transform={[{rotate: '180deg'}]}
-              />
-              <Text p marginLeft={sizes.s}>
-                {t('profile.title')}
-              </Text>
-            </Button>
-            <Block flex={0} align="center">
-              <Image
-                width={64}
-                height={64}
-                marginBottom={sizes.sm}
-                source={{uri: user?.avatar}}
-              />
-              <Text h5 center >
-                {user?.name}
-              </Text>
-              <Text p center >
-                {user?.department}
-              </Text>
-              <Block row marginVertical={sizes.m}>
-                <Button
-                  
-                  outlined
-                  shadow={false}
+          <Block flex={0} align="center">
+            <Image
+              width={64}
+              height={64}
+              marginBottom={sizes.sm}
+              source={{ uri: user?.avatar }}
+            />
+            <Text h5 center >
+              {user?.name}
+            </Text>
+            <Text p center >
+              {user?.department}
+            </Text>
+            <Block row marginVertical={sizes.m}>
+              <Button
+
+                outlined
+                shadow={false}
+                radius={sizes.m}
+                onPress={() => {
+                  alert(`Follow ${user?.name}`);
+                }}>
+                <Block
+                  justify="center"
                   radius={sizes.m}
-                  onPress={() => {
-                    alert(`Follow ${user?.name}`);
-                  }}>
-                  <Block
-                    justify="center"
-                    radius={sizes.m}
-                    paddingHorizontal={sizes.m}
-                    color="rgba(123, 123, 123, 0.42)">
-                    <Text  bold transform="uppercase">
-                      {t('common.follow')}
-                    </Text>
-                  </Block>
-                </Button>
-                <Button
-                  shadow={false}
-                  radius={sizes.m}
-                  marginHorizontal={sizes.sm}
-                  color="rgba(123, 123, 123, 0.42)"
-                  outlined={String()}
-                  onPress={() => handleSocialLink('twitter')}>
-                  <Ionicons
-                    size={18}
-                    name="logo-twitter"
-                    color={colors.text}
-                  />
-                </Button>
-                <Button
-                  shadow={false}
-                  radius={sizes.m}
-                  color="rgba(123, 123, 123, 0.42)"
-                  outlined={String()}
-                  onPress={() => handleSocialLink('dribbble')}>
-                  <Ionicons
-                    size={18}
-                    name="logo-dribbble"
-                    color={colors.text}
-                  />
-                </Button>
-              </Block>
+                  paddingHorizontal={sizes.m}
+                  color="rgba(123, 123, 123, 0.42)">
+                  <Text bold transform="uppercase">
+                    {t('common.follow')}
+                  </Text>
+                </Block>
+              </Button>
+              <Button
+                shadow={false}
+                radius={sizes.m}
+                marginHorizontal={sizes.sm}
+                color="rgba(123, 123, 123, 0.42)"
+                outlined={String()}
+                onPress={() => handleSocialLink('twitter')}>
+                <Ionicons
+                  size={18}
+                  name="logo-twitter"
+                  color={colors.text}
+                />
+              </Button>
+              <Button
+                shadow={false}
+                radius={sizes.m}
+                color="rgba(123, 123, 123, 0.42)"
+                outlined={String()}
+                onPress={() => handleSocialLink('dribbble')}>
+                <Ionicons
+                  size={18}
+                  name="logo-dribbble"
+                  color={colors.text}
+                />
+              </Button>
             </Block>
+          </Block>
 
           {/* profile: stats */}
           <Block

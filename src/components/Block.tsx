@@ -30,6 +30,7 @@ const Block = (props: IBlockProps) => {
     scroll,
     color,
     gradient,
+    tabScreen,
     primary,
     secondary,
     tertiary,
@@ -128,6 +129,9 @@ const Block = (props: IBlockProps) => {
         shadowOpacity: sizes.shadowOpacity,
         shadowRadius: sizes.shadowRadius,
         elevation: sizes.elevation,
+      }),
+      ...(tabScreen && {
+        marginBottom: 75,
       }),
       ...(margin !== undefined && {margin}),
       ...(marginBottom && {marginBottom}),

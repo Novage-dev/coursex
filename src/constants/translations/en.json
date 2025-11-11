@@ -70,7 +70,8 @@
     "login": "Login"
   },
   "navigation": {
-    "home": "CourseX",
+    "home": "Course X",
+    "explore": "Explore",
     "components": "Components",
     "articles": "CourseX",
     "rentals": "CourseX",

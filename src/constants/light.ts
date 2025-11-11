@@ -28,7 +28,7 @@ export const COLORS: ThemeColors = {
   info: '#17C1E8',
 
   card: '#FFFFFF',
-  background: '#f6f6f6',
+  background: '#ffffff',
   backgroundnew: '#FFFFFF',
 
   adgrad1: '#242424ff',

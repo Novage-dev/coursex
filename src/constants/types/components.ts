@@ -15,9 +15,9 @@ import {
   ViewProps,
   ViewStyle,
 } from 'react-native';
-import {BlurProps} from 'expo-blur';
-import {LinearGradientPoint} from 'expo-linear-gradient';
-import {ISpacing, ITheme} from './theme';
+import { BlurProps } from 'expo-blur';
+import { LinearGradientPoint } from 'expo-linear-gradient';
+import { ISpacing, ITheme } from './theme';
 
 /**
  * ## Block
@@ -29,9 +29,9 @@ import {ISpacing, ITheme} from './theme';
  */
 export interface IBlockProps
   extends ISpacing,
-    ViewProps,
-    ScrollViewProps,
-    KeyboardAvoidingViewProps {
+  ViewProps,
+  ScrollViewProps,
+  KeyboardAvoidingViewProps {
   /**
    * id for testID & accesibilityLabel
    */
@@ -115,6 +115,10 @@ export interface IBlockProps
    * Renders a backgroundColor directly from the colors.secondary value
    * @see https://reactnative.dev/docs/view-style-props#backgroundcolor
    */
+  tabScreen?: boolean;
+  /**
+     * Renders a screen with marginbottom so that it doesnt interfere with tab bar
+     */
   secondary?: boolean;
   /**
    * Renders a backgroundColor directly from the colors.tertiary value

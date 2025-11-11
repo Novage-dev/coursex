@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { Articles, Components, Home, Profile, Register, Login, SplashScreen } from '../screens/index.ts';
+import { Articles, Components, Home, Profile, Register, Login, SplashScreen, Explore } from '../screens/index.ts';
 import { useScreenOptions, useTranslation } from '../hooks';
 
 const Stack = createStackNavigator();
@@ -24,6 +24,18 @@ export default ({ initialRouteName }) => {
       />
 
       <Stack.Screen
+        name="Explore"
+        component={Explore}
+        options={{ title: t('navigation.explore') }}
+        />
+
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{ title: t('navigation.profile') }}
+      />
+
+      <Stack.Screen
         name="Components"
         component={Components}
         options={screenOptions.components}
@@ -33,12 +45,6 @@ export default ({ initialRouteName }) => {
         name="Articles"
         component={Articles}
         options={{ title: t('navigation.articles') }}
-      />
-
-      <Stack.Screen
-        name="Profile"
-        component={Profile}
-        options={{ headerShown: false }}
       />
 
       <Stack.Screen
