@@ -19,68 +19,68 @@ export const USERS: IUser[] = [
   {
     id: 1,
     name: 'Kibreab',
-    department: 'Sells courses',
     stats: { posts: 4, followers: 5320, following: 7400 },
     social: { twitter: '', dribbble: '' },
     about:
       'I sell courses on how to become the best version of yourself, follow and be THAT GUY',
     avatar:
       'https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?fit=crop&w=80&q=80',
+    course_ids: [1, 4, 5, 6]
   },
   {
     id: 2,
     name: 'Bella Audrey',
-    department: 'Marketing Manager',
     stats: { posts: 323, followers: 53200, following: 749000 },
     social: { twitter: 'CreativeTim', dribbble: 'creativetim' },
     about:
       'Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality).',
     avatar:
       'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?fit=crop&w=80&q=80',
+    course_ids: [1, 4, 5, 6]
   },
   {
     id: 3,
     name: 'Miriam Lendra',
-    department: 'Desktop Publisher',
     stats: { posts: 323, followers: 53200, following: 749000 },
     social: { twitter: 'CreativeTim', dribbble: 'creativetim' },
     about:
       'Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality).',
     avatar:
       'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?fit=crop&w=80&q=80',
+    course_ids: [1, 4, 5, 6]
   },
   {
     id: 4,
     name: 'David Bishop',
-    department: 'Marketing Manager',
     stats: { posts: 323, followers: 53200, following: 749000 },
     social: { twitter: 'CreativeTim', dribbble: 'creativetim' },
     about:
       'Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality).',
     avatar:
       'https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?fit=crop&w=80&q=80',
+    course_ids: [1, 4, 5, 6]
   },
   {
     id: 5,
     name: 'Mathew Glock',
-    department: 'HR Manager',
     stats: { posts: 323, followers: 53200, following: 749000 },
     social: { twitter: 'CreativeTim', dribbble: 'creativetim' },
     about:
       'Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality).',
     avatar:
       'https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?fit=crop&w=80&q=80',
+    course_ids: [1, 4, 5, 6]
   },
   {
     id: 6,
     name: 'Emma Roberts',
-    department: 'HR Manager',
     stats: { posts: 323, followers: 53200, following: 749000 },
     social: { twitter: 'CreativeTim', dribbble: 'creativetim' },
     about:
       'Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality).',
     avatar:
       'https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?fit=crop&w=80&q=80',
+    course_ids: [1, 4, 5, 6]
   },
 ];
 
@@ -171,10 +171,8 @@ export const TRENDING: IProduct[] = [
 
 // categories
 export const CATEGORIES: ICategory[] = [
-  { id: 1, name: 'Popular' },
-  { id: 2, name: 'Newest' },
-  { id: 3, name: 'Fashion' },
-  { id: 4, name: 'Best deal' },
+  { id: 1, name: 'All' },
+  { id: 2, name: 'Ongoing' },
 ];
 
 // article options
@@ -263,157 +261,173 @@ export const LOCATIONS: ILocation[] = [
 export const ARTICLES: IArticle[] = [
   {
     id: 1,
-    title: 'Flexible office space means growth.',
-    description:
-      'Rather than worrying about switching offices every couple years, you can instead stay in the same location.',
+    title: "Kibreab",
+    description: "Hey, where are you?",
     category: CATEGORIES[0],
     options: ARTICLE_OPTIONS,
-    image:
-      'https://images.unsplash.com/photo-1604998103924-89e012e5265a?fit=crop&w=450&q=80',
+    image: "https://images.unsplash.com/photo-1604998103924-89e012e5265a?fit=crop&w=450&q=80",
     user: USERS[0],
-    timestamp: dayjs().unix(),
+    timestamp: dayjs().subtract(2, "minute").unix(),
   },
   {
     id: 2,
-    title: 'Global payments in a single integration.',
-    description:
-      'Rather than worrying about switching offices every couple years, you can instead stay.',
+    title: "Mekdes",
+    description: "I just finished the assignment.",
     category: CATEGORIES[0],
     options: ARTICLE_OPTIONS,
-    image:
-      'https://images.unsplash.com/photo-1563492065599-3520f775eeed?fit=crop&w=450&q=80',
+    image: "https://images.unsplash.com/photo-1563492065599-3520f775eeed?fit=crop&w=450&q=80",
     user: USERS[1],
-    timestamp: dayjs().unix(),
+    timestamp: dayjs().subtract(10, "minute").unix(),
   },
   {
     id: 3,
-    title: 'Working with the latest technologies.',
-    description:
-      'Rather than worrying about switching offices every couple years, you can instead stay in the same location.',
+    title: "Daniel",
+    description: "Can we meet tomorrow?",
     category: CATEGORIES[0],
     options: ARTICLE_OPTIONS,
-    image:
-      'https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?fit=crop&w=450&q=80',
+    image: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?fit=crop&w=450&q=80",
     user: USERS[2],
-    timestamp: dayjs().unix(),
+    timestamp: dayjs().subtract(30, "minute").unix(),
   },
   {
     id: 4,
-    title: 'Office space means growth.',
-    description:
-      'Rather than worrying about switching offices every couple years, you can instead stay in the same location.',
+    title: "Selam",
+    description: "I'll send the notes later.",
     category: CATEGORIES[0],
     options: ARTICLE_OPTIONS,
-    image:
-      'https://images.unsplash.com/photo-1497215728101-856f4ea42174?fit=crop&w=450&q=80',
+    image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?fit=crop&w=450&q=80",
     user: USERS[3],
-    timestamp: dayjs().unix(),
+    timestamp: dayjs().subtract(1, "hour").unix(),
   },
   {
     id: 5,
-    title: 'Office space means growth.',
-    description: `The mission of LinkedIn is simple: connect the world's professionals.`,
-    category: CATEGORIES[1],
+    title: "Abel",
+    description: "Meeting postponed to tomorrow.",
+    category: CATEGORIES[0],
     options: ARTICLE_OPTIONS,
-    image:
-      'https://images.unsplash.com/photo-1596720426673-e4e14290f0cc?fit=crop&w=450&q=80',
-    user: USERS[4],
-    timestamp: dayjs().unix(),
+    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?fit=crop&w=450&q=80",
+    user: USERS[1],
+    timestamp: dayjs().subtract(5, "hour").unix(),
   },
   {
     id: 6,
-    title: 'Office space means growth.',
-    description:
-      'Rather than worrying about switching offices every couple years, you can instead stay in the same location.',
-    category: CATEGORIES[1],
+    title: "Helen",
+    description: "Check out this cool link!",
+    category: CATEGORIES[0],
     options: ARTICLE_OPTIONS,
-    image:
-      'https://images.unsplash.com/photo-1497215728101-856f4ea42174?fit=crop&w=450&q=80',
+    image: "https://images.unsplash.com/photo-1529154036614-a60975f5c760?fit=crop&w=450&q=80",
     user: USERS[5],
-    timestamp: dayjs().unix(),
+    timestamp: dayjs().subtract(6, "hour").unix(),
   },
   {
     id: 7,
-    title: 'Office space means growth.',
-    description:
-      'Rather than worrying about switching offices every couple years, you can instead stay in the same location.',
-    category: CATEGORIES[1],
+    title: "Amanuel",
+    description: "Looking forward to our trip!",
+    category: CATEGORIES[0],
     options: ARTICLE_OPTIONS,
-    image:
-      'https://images.unsplash.com/photo-1497215728101-856f4ea42174?fit=crop&w=450&q=80',
-    user: USERS[6],
-    timestamp: dayjs().unix(),
+    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?fit=crop&w=450&q=80",
+    user: USERS[0],
+    timestamp: dayjs().subtract(8, "hour").unix(),
   },
   {
     id: 8,
-    title: 'Office space means growth.',
-    description:
-      'Rather than worrying about switching offices every couple years, you can instead stay in the same location.',
-    category: CATEGORIES[2],
+    title: "Rahel",
+    description: "Bro, am at the door!!",
+    category: CATEGORIES[0],
     options: ARTICLE_OPTIONS,
-    image:
-      'https://images.unsplash.com/photo-1497215728101-856f4ea42174?fit=crop&w=450&q=80',
+    image: "https://images.unsplash.com/photo-1529154036614-a60975f5c760?fit=crop&w=450&q=80",
     user: USERS[1],
-    timestamp: dayjs().unix(),
+    timestamp: dayjs().subtract(9, "hour").unix(),
   },
   {
     id: 9,
-    title: 'Office space means growth.',
-    description:
-      'Rather than worrying about switching offices every couple years, you can instead stay in the same location.',
-    category: CATEGORIES[2],
+    title: "Fitsum",
+    description: "Good morning!",
+    category: CATEGORIES[0],
     options: ARTICLE_OPTIONS,
-    image:
-      'https://images.unsplash.com/photo-1497215728101-856f4ea42174?fit=crop&w=450&q=80',
-    user: USERS[5],
-    timestamp: dayjs().unix(),
+    image: "https://images.unsplash.com/photo-1604998103924-89e012e5265a?fit=crop&w=450&q=80",
+    user: USERS[4],
+    timestamp: dayjs().subtract(2, "hour").unix(),
   },
   {
     id: 10,
-    title: 'Office space means growth.',
-    description:
-      'Rather than worrying about switching offices every couple years, you can instead stay in the same location.',
-    category: CATEGORIES[2],
+    title: "Mulu",
+    description: "Let's start the project today.",
+    category: CATEGORIES[0],
     options: ARTICLE_OPTIONS,
-    image:
-      'https://images.unsplash.com/photo-1497215728101-856f4ea42174?fit=crop&w=450&q=80',
-    user: USERS[6],
-    timestamp: dayjs().unix(),
+    image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?fit=crop&w=450&q=80",
+    user: USERS[5],
+    timestamp: dayjs().subtract(3, "hour").unix(),
   },
   {
     id: 11,
-    description:
-      'A great to stay in Paris without feeling you are in the city!',
-    category: CATEGORIES[3], // best deal
+    title: "Sara",
+    description: "Can you check the email I sent?",
+    category: CATEGORIES[0],
     options: ARTICLE_OPTIONS,
-    image:
-      'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?fit=crop&w=450&q=80',
-    location: LOCATIONS[0],
-    rating: 4.9,
-    timestamp: dayjs().unix(),
+    image: "https://images.unsplash.com/photo-1529154036614-a60975f5c760?fit=crop&w=450&q=80",
+    user: USERS[6],
+    timestamp: dayjs().subtract(4, "hour").unix(),
   },
   {
     id: 12,
-    description: 'Best Italy location in a bustling neighbourhood, 2 min.',
-    category: CATEGORIES[3], // best deal
+    title: "Samson",
+    description: "Can you review my code?",
+    category: CATEGORIES[0],
     options: ARTICLE_OPTIONS,
-    image:
-      'https://images.unsplash.com/photo-1529154036614-a60975f5c760?fit=crop&w=450&q=80',
-    location: LOCATIONS[1],
-    rating: 4.5,
-    timestamp: dayjs().unix(),
+    image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?fit=crop&w=450&q=80",
+    user: USERS[6],
+    timestamp: dayjs().subtract(7, "hour").unix(),
   },
   {
     id: 13,
-    description:
-      'The most beautiful and complex UI Kits built by Creative Tim.',
-    category: CATEGORIES[3], // best deal
+    title: "Rahel",
+    description: "Bro, am at the door!!",
+    category: CATEGORIES[1],
     options: ARTICLE_OPTIONS,
-    image:
-      'https://images.unsplash.com/photo-1486299267070-83823f5448dd?fit=crop&w=450&q=80',
-    location: LOCATIONS[2],
-    rating: 4.8,
-    timestamp: dayjs().unix(),
+    image: "https://images.unsplash.com/photo-1529154036614-a60975f5c760?fit=crop&w=450&q=80",
+    user: USERS[1],
+    timestamp: dayjs().subtract(9, "hour").unix(),
+  },
+  {
+    id: 14,
+    title: "Fitsum",
+    description: "Good morning!",
+    category: CATEGORIES[1],
+    options: ARTICLE_OPTIONS,
+    image: "https://images.unsplash.com/photo-1604998103924-89e012e5265a?fit=crop&w=450&q=80",
+    user: USERS[4],
+    timestamp: dayjs().subtract(2, "hour").unix(),
+  },
+  {
+    id: 15,
+    title: "Mulu",
+    description: "Let's start the project today.",
+    category: CATEGORIES[1],
+    options: ARTICLE_OPTIONS,
+    image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?fit=crop&w=450&q=80",
+    user: USERS[5],
+    timestamp: dayjs().subtract(3, "hour").unix(),
+  },
+  {
+    id: 16,
+    title: "Sara",
+    description: "Can you check the email I sent?",
+    category: CATEGORIES[1],
+    options: ARTICLE_OPTIONS,
+    image: "https://images.unsplash.com/photo-1529154036614-a60975f5c760?fit=crop&w=450&q=80",
+    user: USERS[6],
+    timestamp: dayjs().subtract(4, "hour").unix(),
+  },
+  {
+    id: 17,
+    title: "Samson",
+    description: "Can you review my code?",
+    category: CATEGORIES[1],
+    options: ARTICLE_OPTIONS,
+    image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?fit=crop&w=450&q=80",
+    user: USERS[6],
+    timestamp: dayjs().subtract(7, "hour").unix(),
   },
 ];
 
@@ -705,6 +719,75 @@ export const NOTIFICATIONS: INotification[] = [
 ];
 
 // Courses
+export const ALLCOURSES: ICourse[] = [
+    {
+    id: 1,
+    type: 'vertical',
+    title: 'Demo course 1',
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://plus.unsplash.com/premium_photo-1661596686441-611034b8077e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y291cnNlc3xlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000',
+  },
+  {
+    id: 2,
+    type: 'vertical',
+    title: "Demo course 2",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y291cnNlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 3,
+    type: 'vertical',
+    title: "Demo course 3",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1508830524289-0adcbe822b40?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y291cnNlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 4,
+    type: 'vertical',
+    title: "Demo course 4",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNvdXJzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 5,
+    type: 'vertical',
+    title: "Demo course 5",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNvdXJzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
+  },
+  {
+    id: 6,
+    type: 'vertical',
+    title: "Demo course 6",
+    seller: "Kibreab",
+    rating: 4.2,
+    price: 400,
+    isbest: false,
+    image:
+      'https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGNvdXJzZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
+  },
+];
+
 export const DESIGN: ICourse[] = [
   {
     id: 1,
@@ -982,16 +1065,16 @@ export const CHANNELS: IChannel[] = [
     id: 1,
     name: "Kibreab Hailu",
     bio: "This is a channel bio",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=687",
     isVerified: false,
     coursesCount: 1,
     followersCount: 10,
   },
   {
     id: 2,
-    name: "Marry jane",
+    name: "Marry Jane",
     bio: "another channel bio",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=687",
     isVerified: true,
     coursesCount: 5,
     followersCount: 1000,
@@ -1000,7 +1083,7 @@ export const CHANNELS: IChannel[] = [
     id: 3,
     name: "Abel Tesfaye",
     bio: "also a channel bio",
-    image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880",
+    image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=880",
     isVerified: false,
     coursesCount: 2,
     followersCount: 5,
@@ -1009,7 +1092,7 @@ export const CHANNELS: IChannel[] = [
     id: 4,
     name: "Henok Wolde",
     bio: "a different channel bio",
-    image: "https://plus.unsplash.com/premium_photo-1731334985721-5453195ebe56?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+    image: "https://plus.unsplash.com/premium_photo-1731334985721-5453195ebe56?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=687",
     isVerified: true,
     coursesCount: 10,
     followersCount: 2381,
@@ -1018,21 +1101,130 @@ export const CHANNELS: IChannel[] = [
     id: 5,
     name: "Yisakor Eyob",
     bio: "yet another channel bio",
-    image: "https://plus.unsplash.com/premium_photo-1688891564708-9b2247085923?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+    image: "https://plus.unsplash.com/premium_photo-1688891564708-9b2247085923?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=687",
     isVerified: false,
     coursesCount: 2,
     followersCount: 340,
   },
   {
     id: 6,
-    name: "ahmed salih",
+    name: "Ahmed Salih",
     bio: "again, another channel bio here",
-    image: "https://plus.unsplash.com/premium_photo-1669782051589-4f828261b1c2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2030",
+    image: "https://plus.unsplash.com/premium_photo-1669782051589-4f828261b1c2?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=2030",
     isVerified: false,
     coursesCount: 1,
     followersCount: 253,
   },
+  {
+    id: 7,
+    name: "Liya Mekonnen",
+    bio: "Creative designer and course creator",
+    image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=687",
+    isVerified: true,
+    coursesCount: 7,
+    followersCount: 560,
+  },
+  {
+    id: 8,
+    name: "Samuel Bekele",
+    bio: "Fullstack developer tutorials",
+    image: "https://images.unsplash.com/photo-1614289484771-1c9ff19270d6?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=687",
+    isVerified: false,
+    coursesCount: 3,
+    followersCount: 120,
+  },
+  {
+    id: 9,
+    name: "Sara Desta",
+    bio: "Learn UX/UI design here",
+    image: "https://images.unsplash.com/photo-1614289484201-4e23f12e2b1d?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=687",
+    isVerified: true,
+    coursesCount: 9,
+    followersCount: 890,
+  },
+  {
+    id: 10,
+    name: "Mulugeta Alemu",
+    bio: "Mastering JavaScript courses",
+    image: "https://images.unsplash.com/photo-1614289484501-3b2c987b3e3e?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=687",
+    isVerified: false,
+    coursesCount: 2,
+    followersCount: 45,
+  },
+  {
+    id: 11,
+    name: "Rahel Tadesse",
+    bio: "Marketing strategies and insights",
+    image: "https://images.unsplash.com/photo-1614289485001-7d2c1f3f9b1d?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=687",
+    isVerified: true,
+    coursesCount: 5,
+    followersCount: 1320,
+  },
+  {
+    id: 12,
+    name: "Henok Gebre",
+    bio: "Photography tutorials channel",
+    image: "https://images.unsplash.com/photo-1614289485101-2c1f3f4f9a1d?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=687",
+    isVerified: false,
+    coursesCount: 4,
+    followersCount: 230,
+  },
+  {
+    id: 13,
+    name: "Martha Fikre",
+    bio: "Learn coding in a fun way",
+    image: "https://images.unsplash.com/photo-1614289485201-6c1f3f5f9a2d?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=687",
+    isVerified: false,
+    coursesCount: 6,
+    followersCount: 480,
+  },
+  {
+    id: 14,
+    name: "Dawit Tesfaye",
+    bio: "Python and AI tutorials",
+    image: "https://images.unsplash.com/photo-1614289485301-5c1f3f6f9b3d?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=687",
+    isVerified: true,
+    coursesCount: 8,
+    followersCount: 920,
+  },
+  {
+    id: 15,
+    name: "Selam Yohannes",
+    bio: "Design thinking and creativity",
+    image: "https://images.unsplash.com/photo-1614289485401-4c1f3f7f9c4d?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=687",
+    isVerified: false,
+    coursesCount: 3,
+    followersCount: 210,
+  },
+  {
+    id: 16,
+    name: "Bekele Tadesse",
+    bio: "Web development for beginners",
+    image: "https://images.unsplash.com/photo-1614289485501-3c1f3f8f9d5d?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=687",
+    isVerified: false,
+    coursesCount: 5,
+    followersCount: 610,
+  },
+  {
+    id: 17,
+    name: "Mariam Alem",
+    bio: "Digital marketing courses",
+    image: "https://images.unsplash.com/photo-1614289485601-2c1f3f9f9e6d?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=687",
+    isVerified: true,
+    coursesCount: 7,
+    followersCount: 1120,
+  },
+  {
+    id: 18,
+    name: "Abiy Wolde",
+    bio: "Learn mobile app development",
+    image: "https://images.unsplash.com/photo-1614289485701-1c1f3faf9f7d?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=687",
+    isVerified: false,
+    coursesCount: 2,
+    followersCount: 300,
+  },
 ];
+
 
 export const CATAGORIES: ICatagory[] = [
   {
@@ -1072,6 +1264,7 @@ export default {
   EXTRAS,
   NOTIFICATIONS,
   DESIGN,
+  ALLCOURSES,
   BUSINESS,
   DEVELOPMENT,
   TRADING,

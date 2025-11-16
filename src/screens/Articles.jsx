@@ -1,63 +1,83 @@
-import React, {useEffect, useState} from 'react';
-import {FlatList} from 'react-native';
+import React, { useEffect, useState } from "react";
+import { TouchableOpacity, Image as RNImage, StyleSheet, View } from "react-native";
 
-import {useData, useTheme} from '../hooks';
-import {IArticle, ICategory} from '../constants/types';
-import {Block, Button, Article, Text} from '../components';
+import { useData, useTheme } from "../hooks";
+import { Block, Button, Text } from "../components";
 
 const Articles = () => {
+  const HorizontalLine = () => {
+  return (
+    <View style={styles.line} />
+  );
+};
+
+const styles = StyleSheet.create({
+  line: {
+    height: 1, // Thickness of the line
+    backgroundColor: '#cccccc47', // Color of the line
+    width: '100%', // Full width
+    marginVertical: 10, // Optional: Add some vertical spacing
+  },
+});
   const data = useData();
-  const [selected, setSelected] = useState();
+  const { colors, gradients, sizes } = useTheme();
+
+  // States
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [articles, setArticles] = useState([]);
   const [categories, setCategories] = useState([]);
-  const {colors, gradients, sizes} = useTheme();
 
-  // init articles
+  // Initialize categories & articles
   useEffect(() => {
-    setArticles(data?.articles);
-    setCategories(data?.categories);
-    setSelected(data?.categories[0]);
-  }, [data.articles, data.categories]);
+    if (data?.categories?.length) {
+      setCategories(data.categories);
+      setSelectedCategory(data.categories[0]);
+    }
+    if (data?.articles?.length) {
+      setArticles(data.articles);
+    }
+  }, [data]);
 
-  // update articles on category change
+  // Update articles when category changes
   useEffect(() => {
-    const category = data?.categories?.find(
-      (category) => category?.id === selected?.id,
-    );
-
-    const newArticles = data?.articles?.filter(
-      (article) => article?.category?.id === category?.id,
-    );
-
-    setArticles(newArticles);
-  }, [data, selected, setArticles]);
+    if (selectedCategory && data?.articles?.length) {
+      const newArticles = data.articles.filter(
+        (article) => article?.category?.id === selectedCategory.id
+      );
+      setArticles(newArticles);
+    }
+  }, [selectedCategory, data]);
 
   return (
     <Block tabScreen>
-      {/* categories list */}
-      <Block color={colors.card} row flex={0} paddingVertical={sizes.padding}>
+
+      {/* Category list */}
+      <Block row flex={0} paddingVertical={sizes.padding}>
         <Block
           scroll
           horizontal
           renderToHardwareTextureAndroid
           showsHorizontalScrollIndicator={false}
-          contentOffset={{x: -sizes.padding, y: 0}}>
+          contentOffset={{ x: -sizes.padding, y: 0 }}
+        >
           {categories?.map((category) => {
-            const isSelected = category?.id === selected?.id;
+            const isSelected = category?.id === selectedCategory?.id;
             return (
               <Button
+                key={`category-${category?.id}`}
                 radius={sizes.m}
                 marginHorizontal={sizes.s}
-                key={`category-${category?.id}}`}
-                onPress={() => setSelected(category)}
-                gradient={gradients?.[isSelected ? 'primary' : 'light']}>
+                onPress={() => setSelectedCategory(category)}
+                gradient={gradients?.[isSelected ? "primary" : "light"]}
+                style={{ borderColor: colors.gray, borderWidth: 1 }}
+              >
                 <Text
                   p
                   bold={isSelected}
-                  white={isSelected}
-                  black={!isSelected}
+                  style={isSelected ? { color: colors.text } : { color: colors.gray, opacity: 0.6 }}
                   transform="capitalize"
-                  marginHorizontal={sizes.m}>
+                  marginHorizontal={sizes.m}
+                >
                   {category?.name}
                 </Text>
               </Button>
@@ -66,14 +86,32 @@ const Articles = () => {
         </Block>
       </Block>
 
-      <FlatList
-        data={articles}
-        showsVerticalScrollIndicator={false}
-        keyExtractor={(item) => `${item?.id}`}
-        style={{paddingHorizontal: sizes.padding}}
-        contentContainerStyle={{paddingBottom: sizes.l}}
-        renderItem={({item}) => <Article {...item} />}
-      />
+      {/* Articles list */}
+      <Block marginTop={sizes.m} scroll>
+        {articles?.map((article) => (
+          <TouchableOpacity key={article?.id}>
+            <Block marginLeft={sizes.sm} marginRight={sizes.sm} style={{ marginBottom: sizes.s , marginTop: sizes.s }} row align="center">
+              <RNImage
+                source={{ uri: article?.image }}
+                style={{
+                  width: 60,
+                  height: 60,
+                  borderRadius: 30,
+                  marginRight: sizes.m,
+                }}
+              />
+              <Block flex>
+                <Text bold>{article?.title}</Text>
+                <Text p color={colors.gray} numberOfLines={2}>
+                  {article?.description}
+                </Text>
+              </Block>
+            </Block>
+            <HorizontalLine />
+          </TouchableOpacity>
+        ))}
+      </Block>
+
     </Block>
   );
 };

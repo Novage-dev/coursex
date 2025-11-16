@@ -7,12 +7,12 @@ export * from './theme';
 
 export interface IUser {
   id: number | string;
-  name?: string;
-  department?: string;
+  name: string;
   avatar?: string;
-  stats?: { posts?: number; followers?: number; following?: number };
+  stats: { posts?: number; followers?: number; following?: number };
   social?: { twitter?: string; dribbble?: string };
   about?: string;
+  course_ids: Array<number | string>;
 }
 
 export interface ICategory {

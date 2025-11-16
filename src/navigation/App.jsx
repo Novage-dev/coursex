@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 import { useFonts } from 'expo-font';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import Menu from './Menu';
 import { useData, ThemeProvider, TranslationProvider } from '../hooks';
@@ -48,15 +48,15 @@ export default function App() {
   return (
     <TranslationProvider>
       <ThemeProvider theme={theme} setTheme={setTheme}>
-          {/* ✅ ExpoStatusBar handles light/dark mode reliably */}
-          <ExpoStatusBar
-            style={isDark ? 'light' : 'dark'}
-            backgroundColor={isDark ? '#121212' : '#ffffff'}
-            translucent={false}
-          />
+        <SafeAreaProvider>
+          {/* Render a small safe-area view under the status bar to control its background on Android edge-to-edge */}
+          {/* <SafeAreaView edges={["top"]} style={{ backgroundColor: isDark ? theme.colors.background : theme.colors.background }} /> */}
+          {/* ExpoStatusBar set translucent and let the SafeAreaView provide the background */}
+          <ExpoStatusBar style={isDark ? 'light' : 'dark'} translucent />
           <NavigationContainer theme={navigationTheme}>
             <Menu />
           </NavigationContainer>
+        </SafeAreaProvider>
       </ThemeProvider>
     </TranslationProvider>
   );

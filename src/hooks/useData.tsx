@@ -19,6 +19,7 @@ import {
   TRENDING,
   CATEGORIES,
   ARTICLES,
+  ALLCOURSES,
   DESIGN,
   BUSINESS,
   DEVELOPMENT,
@@ -39,6 +40,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<IUser>(USERS[0]);
   const [users, setUsers] = useState<IUser[]>(USERS);
   const [following, setFollowing] = useState<IProduct[]>(FOLLOWING);
+  const [allCourses, setAllCourses] = useState<ICourse[]>(ALLCOURSES);
   const [design, setDesign] = useState<ICourse[]>(DESIGN);
   const [business, setBusiness] = useState<ICourse[]>(BUSINESS);
   const [development, setDevelopment] = useState<ICourse[]>(DEVELOPMENT);
@@ -134,6 +136,8 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
     setArticles,
     article,
     handleArticle,
+    allCourses,
+    setAllCourses,
     design,
     setDesign,
     business,

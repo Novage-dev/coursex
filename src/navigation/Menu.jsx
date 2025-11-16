@@ -51,29 +51,30 @@ export default function Menu() {
   };
 
   const tabs = [
-    { name: 'Home', labelKey: 'screens.home', icon: assets.home },
-    { name: 'Explore', labelKey: 'screens.explore', icon: assets.components },
-    { name: 'Create', labelKey: 'screens.create', icon: assets.plus },
-    { name: 'Articles', labelKey: 'screens.articles', icon: assets.chat },
-    { name: 'Profile', labelKey: 'screens.profile', icon: assets.users },
+    { route: 'HomeTab', initial: 'Home', labelKey: 'screens.home', icon: assets.home },
+    { route: 'ExploreTab', initial: 'Explore', labelKey: 'screens.explore', icon: assets.components },
+    { route: 'Create', labelKey: 'screens.create', icon: assets.plus },
+    { route: 'ArticlesTab', initial: 'Articles', labelKey: 'screens.articles', icon: assets.chat },
+    { route: 'ProfileTab', initial: 'Profile', labelKey: 'screens.profile', icon: assets.users },
   ];
 
   return (
     <Block gradient={isDark ? gradients.dark : gradients.light} style={{ flex: 1 }}>
       <Tab.Navigator
-        initialRouteName="Home"
-        screenOptions={{ headerShown: false, }}
+        initialRouteName="HomeTab"
+        screenOptions={{ headerShown: false }}
         tabBar={(props) => <CustomTabBar {...props} tabs={tabs} />}
       >
         {tabs
-          .filter((t) => t.name !== 'Create')
+          .filter((t) => t.route !== 'Create')
           .map((tab) => (
             <Tab.Screen
-              key={tab.name}
-              name={tab.name}
-              options={{ title: tab.name }}
-              children={() => <Screens initialRouteName={tab.name} />}
-            />
+              key={tab.route}
+              name={tab.route}
+              options={{ title: tab.initial || tab.route }}
+            >
+              {() => <Screens initialRouteName={tab.initial} />}
+            </Tab.Screen>
           ))}
       </Tab.Navigator>
     </Block>
@@ -89,7 +90,7 @@ function CustomTabBar({ state, navigation, tabs }) {
   const bottomPadding = insets.bottom || (Platform.OS === 'ios' ? 20 : 10);
 
   // Calculate visible tabs (skip Create)
-  const visibleTabs = tabs.filter((t) => t.name !== 'Create');
+  const visibleTabs = tabs.filter((t) => t.route !== 'Create');
 
   return (
     <View
@@ -97,14 +98,14 @@ function CustomTabBar({ state, navigation, tabs }) {
       style={[styles.tabBar, { backgroundColor: colors.card, height: TAB_BAR_HEIGHT + bottomPadding, paddingBottom: bottomPadding }]}
     >
       {tabs.map((tab, index) => {
-        const isCreate = tab.name === 'Create';
-        const adjustedIndex = isCreate ? null : visibleTabs.findIndex((t) => t.name === tab.name);
+        const isCreate = tab.route === 'Create';
+        const adjustedIndex = isCreate ? null : visibleTabs.findIndex((t) => t.route === tab.route);
         const focused = adjustedIndex !== null && state.index === adjustedIndex;
 
         if (isCreate) {
           return (
             <TouchableOpacity
-              key={tab.name}
+              key={tab.route}
               activeOpacity={0.85}
               style={[styles.createButton, { backgroundColor: colors.primary, shadowColor: colors.primary }]}
               onPress={() => Alert.alert(t(tab.labelKey), t('common.action'))}
@@ -118,16 +119,16 @@ function CustomTabBar({ state, navigation, tabs }) {
         const onPress = () => {
           const event = navigation.emit({
             type: 'tabPress',
-            target: tab.name,
+            target: tab.route,
             canPreventDefault: true,
           });
 
-          if (!event.defaultPrevented) navigation.navigate(tab.name);
+          if (!event.defaultPrevented) navigation.navigate(tab.route);
         };
 
         return (
           <TouchableOpacity
-            key={tab.name}
+            key={tab.route}
             style={styles.tabButton}
             onPress={onPress}
             activeOpacity={0.7}
